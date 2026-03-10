@@ -74,8 +74,114 @@ let players = JSON.parse(localStorage.getItem('players')) || [
   { id: 36, name: 'Ryan Matzuk*', hometown: 'Lakeside, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 36, bracket2026: 'John Daly' }
 ];
 let scores = JSON.parse(localStorage.getItem('scores')) || [];
-let teams = JSON.parse(localStorage.getItem('teams')) || [];
-let brackets = JSON.parse(localStorage.getItem('brackets')) || [];
+
+// Helper function to generate random score
+function randomScore(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Generate dummy teams and scores for testing
+let teams = JSON.parse(localStorage.getItem('teams')) || [
+  { id: 101, name: 'Team Rick Self', tournamentId: 1709769600000 },
+  { id: 102, name: 'Team Allen Linday', tournamentId: 1709769600000 },
+  { id: 103, name: 'Team Chris Edwards', tournamentId: 1709769600000 },
+  { id: 104, name: 'Team Tim Downer', tournamentId: 1709769600000 },
+  { id: 105, name: 'Team Mason Downer', tournamentId: 1709769600000 },
+  { id: 106, name: 'Team Mark Morris', tournamentId: 1709769600000 },
+  { id: 107, name: 'Team Jeff Lodge', tournamentId: 1709769600000 },
+  { id: 108, name: 'Team Howie Armstrong', tournamentId: 1709769600000 },
+  { id: 109, name: 'Team Cameron Downer', tournamentId: 1709769600000 }
+];
+
+let brackets = JSON.parse(localStorage.getItem('brackets')) || [
+  // Team Rick Self
+  { tournamentId: 1709769600000, teamId: 101, playerId: 1, bracket: 'A' },   // Rick Self (JN)
+  { tournamentId: 1709769600000, teamId: 101, playerId: 10, bracket: 'B' },  // Ronnie Shupe (TW)
+  { tournamentId: 1709769600000, teamId: 101, playerId: 19, bracket: 'C' },  // BJ Funai (AP)
+  { tournamentId: 1709769600000, teamId: 101, playerId: 28, bracket: 'D' },  // David Small (JD)
+  
+  // Team Allen Linday
+  { tournamentId: 1709769600000, teamId: 102, playerId: 2, bracket: 'A' },   // Allen Linday (JN)
+  { tournamentId: 1709769600000, teamId: 102, playerId: 11, bracket: 'B' },  // Bernie Watson (TW)
+  { tournamentId: 1709769600000, teamId: 102, playerId: 20, bracket: 'C' },  // John Holloway (AP)
+  { tournamentId: 1709769600000, teamId: 102, playerId: 29, bracket: 'D' },  // Brett White (JD)
+  
+  // Team Chris Edwards
+  { tournamentId: 1709769600000, teamId: 103, playerId: 3, bracket: 'A' },   // Chris Edwards (JN)
+  { tournamentId: 1709769600000, teamId: 103, playerId: 12, bracket: 'B' },  // Bubba Jenkins (TW)
+  { tournamentId: 1709769600000, teamId: 103, playerId: 21, bracket: 'C' },  // Andy Self (AP)
+  { tournamentId: 1709769600000, teamId: 103, playerId: 30, bracket: 'D' },  // Rob Whelan (JD)
+  
+  // Team Tim Downer
+  { tournamentId: 1709769600000, teamId: 104, playerId: 4, bracket: 'A' },   // Tim Downer (JN)
+  { tournamentId: 1709769600000, teamId: 104, playerId: 13, bracket: 'B' },  // Wayne Samuels (TW)
+  { tournamentId: 1709769600000, teamId: 104, playerId: 22, bracket: 'C' },  // Dillon Small (AP)
+  { tournamentId: 1709769600000, teamId: 104, playerId: 31, bracket: 'D' },  // J.C. Stott (JD)
+  
+  // Team Mason Downer
+  { tournamentId: 1709769600000, teamId: 105, playerId: 5, bracket: 'A' },   // Mason Downer (JN)
+  { tournamentId: 1709769600000, teamId: 105, playerId: 14, bracket: 'B' },  // Chris Sickal (TW)
+  { tournamentId: 1709769600000, teamId: 105, playerId: 23, bracket: 'C' },  // Eric Kennedy (AP)
+  { tournamentId: 1709769600000, teamId: 105, playerId: 32, bracket: 'D' },  // John McCauley (JD)
+  
+  // Team Mark Morris
+  { tournamentId: 1709769600000, teamId: 106, playerId: 6, bracket: 'A' },   // Mark Morris (JN)
+  { tournamentId: 1709769600000, teamId: 106, playerId: 15, bracket: 'B' },  // Travis Thomas (TW)
+  { tournamentId: 1709769600000, teamId: 106, playerId: 24, bracket: 'C' },  // Ray Valentino (AP)
+  { tournamentId: 1709769600000, teamId: 106, playerId: 33, bracket: 'D' },  // DJ Hunsucker (JD)
+  
+  // Team Jeff Lodge
+  { tournamentId: 1709769600000, teamId: 107, playerId: 7, bracket: 'A' },   // Jeff Lodge (JN)
+  { tournamentId: 1709769600000, teamId: 107, playerId: 16, bracket: 'B' },  // Robert Vick (TW)
+  { tournamentId: 1709769600000, teamId: 107, playerId: 25, bracket: 'C' },  // BJ Throckmorton (AP)
+  { tournamentId: 1709769600000, teamId: 107, playerId: 34, bracket: 'D' },  // Dane Hunsucker (JD)
+  
+  // Team Howie Armstrong
+  { tournamentId: 1709769600000, teamId: 108, playerId: 8, bracket: 'A' },   // Howie Armstrong (JN)
+  { tournamentId: 1709769600000, teamId: 108, playerId: 17, bracket: 'B' },  // C.J. Meade (TW)
+  { tournamentId: 1709769600000, teamId: 108, playerId: 26, bracket: 'C' },  // Brian Smith (AP)
+  { tournamentId: 1709769600000, teamId: 108, playerId: 35, bracket: 'D' },  // Jeff Marr (JD)
+  
+  // Team Cameron Downer
+  { tournamentId: 1709769600000, teamId: 109, playerId: 9, bracket: 'A' },   // Cameron Downer (JN)
+  { tournamentId: 1709769600000, teamId: 109, playerId: 18, bracket: 'B' },  // Mitch Dunkum (TW)
+  { tournamentId: 1709769600000, teamId: 109, playerId: 27, bracket: 'C' },  // Mark McDonough (AP)
+  { tournamentId: 1709769600000, teamId: 109, playerId: 36, bracket: 'D' }   // Ryan Matzuk (JD)
+];
+
+// Generate dummy scores for all players for all 3 rounds
+const dummyScores = [];
+const bracketRanges = {
+  'Jack Nicklaus': { min: 28, max: 45 },
+  'Tiger Woods': { min: 22, max: 35 },
+  'Arnold Palmer': { min: 18, max: 35 },
+  'John Daly': { min: 10, max: 30 }
+};
+
+brackets.forEach((bracket, index) => {
+  const player = players.find(p => p.id === bracket.playerId);
+  const rounds = [1709856000000, 1709942400000, 1710028800000];
+  const roundDates = ['03/12/2026', '03/13/2026', '03/14/2026'];
+  
+  rounds.forEach((roundId, roundIndex) => {
+    const range = bracketRanges[player.bracket2026];
+    const points = randomScore(range.min, range.max);
+    dummyScores.push({
+      id: Date.now() + index * 1000 + roundIndex,
+      tournamentId: 1709769600000,
+      roundId: roundId,
+      playerId: bracket.playerId,
+      teamId: bracket.teamId,
+      date: roundDates[roundIndex],
+      points: points,
+      strokes: Math.floor(Math.random() * 10) + 70  // Random strokes 70-79
+    });
+  });
+});
+
+if (!localStorage.getItem('scores') || localStorage.getItem('scores') === '[]') {
+  scores = dummyScores;
+}
 
 let currentPage = {
 tournaments: 1,
