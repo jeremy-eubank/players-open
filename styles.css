@@ -530,4 +530,61 @@ padding: 8px 10px;
 font-size: 12px;
 min-height: 40px;
 }
+
+/* Tournaments Table Card View */
+#tournamentTable {
+display: block;
+}
+
+#tournamentTable thead {
+display: none;
+}
+
+#tournamentTable tbody {
+display: block;
+}
+
+#tournamentTable tr {
+display: block;
+border: 1px solid #d9e6d9;
+border-radius: 8px;
+margin-bottom: 15px;
+padding: 15px;
+background-color: #fff;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#tournamentTable tr:hover {
+background-color: #fff !important;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#tournamentTable td {
+display: block;
+text-align: left;
+border: none;
+padding: 10px 0;
+margin-bottom: 10px;
+font-size: 14px;
+}
+
+#tournamentTable td:nth-child(1) {
+font-size: 16px;
+font-weight: bold;
+color: #072B55;
+margin-bottom: 12px;
+}
+
+#tournamentTable td:nth-child(4),
+#tournamentTable td:nth-child(5) {
+margin-bottom: 0;
+}
+
+#tournamentTable button {
+display: inline-block;
+margin-right: 8px;
+margin-top: 8px;
+padding: 8px 12px;
+font-size: 12px;
+}
 }
