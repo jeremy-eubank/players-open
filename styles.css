@@ -1,0 +1,533 @@
+/* General styles */
+body {
+font-family: 'Georgia', serif;
+margin: 0;
+padding: 20px;
+background-color: #f0f0f0;
+color: #333;
+}
+
+/* Header styling with golfer silhouette images */
+header {
+text-align: center;
+background-color: #072B55; /* Dark blue primary color */
+padding: 20px;
+border-bottom: 5px solid #C4A579; /* Tan/gold secondary color */
+position: relative;
+overflow: hidden; /* Prevents image overflow */
+}
+
+/* Header title */
+h1 {
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+color: #C4A579; /* Tan/gold */
+margin: 0;
+font-size: 2.5em;
+text-transform: uppercase;
+display: inline-block;
+}
+
+/* Sponsor text */
+.sponsor {
+font-family: 'Times New Roman', serif;
+font-size: 1.2em;
+color: #fff;
+margin: 5px 0 0;
+font-style: italic;
+}
+
+/* Headings */
+h2, h3 {
+font-weight: normal;
+color: #072B55; /* Dark blue */
+}
+
+/* Sections */
+section {
+margin: 20px 0;
+padding: 20px;
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+border: 1px solid #d9e6d9;
+}
+
+/* Hidden elements */
+.hidden {
+display: none !important;
+}
+
+/* Forms */
+form {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-bottom: 20px;
+}
+
+/* Inputs, selects, textareas */
+input, select, textarea {
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-family: 'Georgia', serif;
+background-color: #f9f9f9;
+}
+
+/* Buttons */
+button {
+padding: 8px 15px;
+background-color: #072B55; /* Dark blue */
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-family: 'Georgia', serif;
+}
+
+button:hover {
+background-color: #051f3e; /* Darker blue on hover */
+}
+
+/* Tables */
+table {
+width: 100%;
+border-collapse: collapse;
+background-color: #fff;
+}
+
+th, td {
+padding: 12px;
+text-align: center;
+border-bottom: 1px solid #d9e6d9;
+vertical-align: middle;
+}
+
+th {
+background-color: #e0e7ef;
+color: #072B55; /* Dark blue */
+font-weight: bold;
+cursor: pointer;
+position: relative;
+white-space: nowrap;
+}
+
+th:hover {
+background-color: #d1dbe8;
+}
+
+th.asc::after {
+content: ' ↑';
+}
+
+th.desc::after {
+content: ' ↓';
+}
+
+tr:not(.top-team):hover {
+background-color: #f5f5f5;
+}
+
+#teamsTable tr.top-team {
+background-color: #C4A579; /* Tan/gold */
+}
+
+/* Modals */
+.modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.modal-content {
+background-color: #fff;
+padding: 20px;
+border-radius: 8px;
+width: 500px;
+max-width: 90%;
+max-height: 80vh;
+overflow-y: auto;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+float: right;
+font-size: 24px;
+cursor: pointer;
+color: #072B55; /* Dark blue */
+}
+
+/* Clickable elements */
+.clickable {
+cursor: pointer;
+color: #072B55; /* Dark blue */
+}
+
+.clickable:hover {
+text-decoration: underline;
+}
+
+/* Specific table column widths */
+#tournamentScoresTable th, #tournamentScoresTable td,
+#teamsTable th, #teamsTable td {
+min-width: 80px;
+}
+
+/* Form layouts */
+#editForm, #bulkScoreForm, #bulkPlayerForm, #bulkTeamForm, #bulkTournamentForm, #bulkRoundForm, #importCSVForm {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+#editForm label, #bulkScoreForm label, #bulkPlayerForm label, #bulkTeamForm label, #bulkTournamentForm label, #bulkRoundForm label, #importCSVForm label {
+display: flex;
+flex-direction: column;
+font-size: 14px;
+color: #072B55; /* Dark blue */
+}
+
+#editForm input, #editForm select, #editForm textarea,
+#bulkScoreForm input, #bulkScoreForm select,
+#bulkPlayerForm input, #bulkPlayerForm select,
+#bulkTeamForm input, #bulkTeamForm select,
+#bulkTournamentForm input, #bulkTournamentForm select,
+#bulkRoundForm input, #bulkRoundForm select,
+#importCSVForm input {
+width: 100%;
+box-sizing: border-box;
+}
+
+#bulkScoreEntries, #bulkPlayerEntries, #bulkTeamEntries, #bulkTournamentEntries, #bulkRoundEntries {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+/* Team round table */
+.team-round-table {
+width: 100%;
+border-collapse: collapse;
+margin: 5px 0;
+}
+
+.team-round-table td {
+padding: 6px;
+border: 1px solid #d9e6d9;
+font-size: 12px;
+}
+
+.team-round-table .total {
+font-weight: bold;
+background-color: #f0f0f0;
+}
+
+.team-round-table .bracket {
+font-weight: bold;
+color: #C4A579; /* Tan/gold */
+margin-right: 5px;
+}
+
+/* Alignment classes for team-round-table */
+.team-round-table.left-align .bracket {
+float: left;
+}
+
+.team-round-table.left-align .player-score {
+float: right;
+text-align: right;
+}
+
+/* Font size for team name and total score */
+#teamsTable td:first-child, /* Team Name */
+#teamsTable td:nth-last-child(2) { /* Total Score */
+font-size: 24px;
+word-wrap: break-word;
+white-space: normal;
+}
+
+/* Tooltips */
+.tooltip {
+position: relative;
+}
+
+.tooltip .tooltiptext {
+visibility: hidden;
+background-color: #333;
+color: #fff;
+text-align: left;
+padding: 5px;
+border-radius: 4px;
+position: absolute;
+z-index: 1;
+bottom: 125%;
+left: 50%;
+transform: translateX(-50%);
+min-width: 150px;
+}
+
+.tooltip:hover .tooltiptext {
+visibility: visible;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+margin: 10px 0;
+font-size: 14px;
+}
+
+.breadcrumbs a {
+color: #072B55; /* Dark blue */
+text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+text-decoration: underline;
+}
+
+/* Back button */
+.back-button {
+padding: 10px 20px;
+background-color: #072B55; /* Dark blue */
+color: #fff;
+border: none;
+border-radius: 4px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.back-button:hover {
+background-color: #051f3e; /* Darker blue */
+}
+
+/* Loading indicator */
+#loading {
+position: fixed;
+top: 10px;
+right: 10px;
+background-color: #072B55; /* Dark blue */
+color: #fff;
+padding: 10px;
+border-radius: 4px;
+z-index: 1000;
+}
+
+/* Pagination */
+.pagination {
+margin-top: 10px;
+text-align: center;
+}
+
+.pagination button {
+margin: 0 5px;
+}
+
+/* Toggle label */
+.toggle-label {
+margin-left: 10px;
+font-size: 14px;
+color: #072B55; /* Dark blue */
+}
+
+/* Highlight classes */
+.above-avg {
+background-color: #d4edda; /* Light green for above average */
+}
+
+.below-avg {
+background-color: #f8d7da; /* Light red for below average */
+}
+
+/* Profile header */
+.profile-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+
+/* Profile buttons */
+.profile-buttons {
+display: flex;
+gap: 10px;
+}
+
+/* Player profile container */
+.player-profile-container {
+display: flex;
+gap: 20px;
+align-items: flex-start;
+}
+
+/* Player headshot */
+.player-headshot {
+flex: 0 0 auto;
+text-align: center;
+}
+
+#playerHeadshot {
+width: 150px;
+height: 150px;
+object-fit: cover;
+border-radius: 8px;
+filter: grayscale(100%);
+}
+
+#uploadHeadshotBtn {
+margin-top: 10px;
+display: block;
+}
+
+/* Player details */
+.player-details {
+flex: 1;
+margin-top: -10px;
+}
+
+.player-details p {
+margin: 10px 0;
+font-size: 16px;
+}
+
+.player-details input {
+width: 150px;
+margin-left: 10px;
+}
+
+/* Add golfer silhouette images to header */
+header::before,
+header::after {
+content: '';
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+width: 100px;
+height: 150px;
+background-image: url('golfer-silhouette.png'); /* Path to your image */
+background-size: contain;
+background-repeat: no-repeat;
+max-width: 100%;
+max-height: 100%;
+}
+
+header::before {
+left: 20px;
+}
+
+header::after {
+right: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+header::before,
+header::after {
+width: 60px;
+height: 90px;
+}
+h1 {
+font-size: 2em;
+}
+}
+
+@media (max-width: 480px) {
+header::before,
+header::after {
+width: 40px;
+height: 60px;
+}
+h1 {
+font-size: 1.5em;
+}
+}
+
+/* Tab Navigation */
+.tab-navigation {
+display: flex;
+gap: 0;
+background-color: #f0f0f0;
+border-bottom: 2px solid #ddd;
+margin-bottom: 20px;
+border-radius: 4px 4px 0 0;
+overflow-x: auto;
+}
+
+.tab-btn {
+flex: 1;
+padding: 12px 16px;
+background: transparent;
+border: none;
+cursor: pointer;
+font-size: 14px;
+font-weight: 600;
+color: #333;
+border-bottom: 3px solid transparent;
+transition: all 0.3s;
+white-space: nowrap;
+min-height: 44px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Georgia', serif;
+}
+
+.tab-btn:hover {
+background-color: #e8e8e8;
+}
+
+.tab-btn.active {
+color: #0066cc;
+border-bottom: 3px solid #0066cc;
+background-color: white;
+}
+
+/* Tab Content */
+.tab-content {
+display: none;
+}
+
+.tab-content.active {
+display: block;
+animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+
+@media (max-width: 768px) {
+.tab-navigation {
+margin-bottom: 15px;
+}
+
+.tab-btn {
+padding: 10px 12px;
+font-size: 13px;
+min-height: 40px;
+}
+}
+
+@media (max-width: 480px) {
+.tab-navigation {
+margin-bottom: 12px;
+}
+
+.tab-btn {
+padding: 8px 10px;
+font-size: 12px;
+min-height: 40px;
+}
+}
