@@ -136,7 +136,7 @@ const teamsTableHead = document.getElementById('teamsTableHead');
 let sortStates = {
 tournaments: { column: 'name', direction: 'asc' },
 rounds: { column: 'tournamentName', direction: 'asc' },
-players: { column: 'name', direction: 'asc' },
+players: { column: 'rank2026', direction: 'asc' },
 scores: { column: 'tournamentId', direction: 'asc' },
 tournamentScores: { column: 'Team', direction: 'asc' }
 };
@@ -764,49 +764,23 @@ renderPagination('rounds', sorted, currentPage.rounds, updateRounds);
 
 function updatePlayers(filter = '') {
 const filtered = filterData(players, filter, ['name']);
-const sorted = sortData(filtered, sortStates.players.column, sortStates.players.direction, 'string',
-sortStates.players.column === 'avgPoints' ? p => {
-const playerScores = scores.filter(s => s.playerId == p.id);
-return playerScores.length ? (playerScores.reduce((sum, s) => sum + Number(s.points), 0) / playerScores.length).toFixed(2) : 0;
-} : sortStates.players.column === 'weightedAvgPoints' ? p => {
-const playerScores = scores.filter(s => s.playerId == p.id);
-return playerScores.length >= 6 ? calculateWeightedAverage(p.id) : 'N/A';
-} : sortStates.players.column === 'avgStrokes' ? p => {
-const playerScores = scores.filter(s => s.playerId == p.id);
-return playerScores.length ? (playerScores.reduce((sum, s) => sum + Number(s.strokes), 0) / playerScores.length).toFixed(2) : 0;
-} : sortStates.players.column === 'totalRounds' ? p => scores.filter(s => s.playerId == p.id).length :
-sortStates.players.column === 'highScore' ? p => {
-const highScoreData = scores.filter(s => s.playerId == p.id).reduce((max, s) => Number(s.points) > Number(max.points) ? s : max, { points: -Infinity });
-return highScoreData.points !== -Infinity ? Number(highScoreData.points) : 0;
-} : null);
+const sorted = sortData(filtered, sortStates.players.column, sortStates.players.direction, 
+sortStates.players.column === 'rank2026' ? 'number' : 'string',
+sortStates.players.column === 'rank2026' ? p => Number(p.rank2026) : null);
 const start = (currentPage.players - 1) * ITEMS_PER_PAGE;
 const end = start + ITEMS_PER_PAGE;
 const paginated = sorted.slice(start, end);
 
 playerTable.innerHTML = paginated.map(p => {
-const playerScores = scores.filter(s => s.playerId == p.id);
-const avgPoints = playerScores.length ? (playerScores.reduce((sum, s) => sum + Number(s.points), 0) / playerScores.length).toFixed(2) : 0;
-const avgStrokes = playerScores.length ? (playerScores.reduce((sum, s) => sum + Number(s.strokes), 0) / playerScores.length).toFixed(2) : 0;
-const weightedAvgPoints = playerScores.length >= 6 ? calculateWeightedAverage(p.id) : 'N/A';
-const totalRounds = playerScores.length;
-const highScoreData = playerScores.reduce((max, s) => Number(s.points) > Number(max.points) ? s : max, { points: -Infinity });
-const highScore = highScoreData.points !== -Infinity ? highScoreData.points : 'N/A';
-const highScoreRound = highScoreData.roundId ? rounds.find(r => r.id == highScoreData.roundId) : null;
-const highScoreLocation = highScoreRound ? highScoreRound.location : 'Unknown';
-const weightedLocations = playerScores
-.sort((a, b) => new Date(b.date) - new Date(a.date))
-.slice(0, 6)
-.map(s => rounds.find(r => r.id == s.roundId)?.location || 'Unknown')
-.join('<br>');
 return `
 <tr>
-<td class="clickable" onclick="showPlayerProfile(${p.id})">${p.name}</td>
-<td>${p.hometown}</td>
-<td>${totalRounds}</td>
-<td>${avgPoints}</td>
-<td class="tooltip">${weightedAvgPoints}<span class="tooltiptext">${weightedLocations}</span></td>
-<td>${avgStrokes}</td>
-<td class="tooltip">${highScore} (${highScoreLocation})<span class="tooltiptext">${formatDate(highScoreData.date)} - ${highScoreLocation}</span></td>
+<td>${p.rank2026 || 'N/A'}</td>
+<td>
+<div class="player-name-cell" onclick="showPlayerProfile(${p.id})" style="cursor: pointer;">
+<div style="font-weight: bold; color: #072B55;">${p.name}</div>
+<div style="font-size: 12px; color: #666;">${p.hometown || 'No hometown'}</div>
+</div>
+</td>
 <td>
 <button onclick="showEditModal('player', ${p.id})">Edit</button>
 <button onclick="showConfirmDelete('player', ${p.id})">Delete</button>
