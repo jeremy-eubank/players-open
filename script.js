@@ -16,26 +16,63 @@ let rounds = JSON.parse(localStorage.getItem('rounds')) || [
     id: 1709856000000,
     tournamentId: 1709769600000,
     tournamentName: 'Players Open',
-    date: '2026-03-12',
+    date: '03/12/2026',
     location: 'World Tour'
   },
   {
     id: 1709942400000,
     tournamentId: 1709769600000,
     tournamentName: 'Players Open',
-    date: '2026-03-14',
+    date: '03/13/2026',
     location: 'Arrow Head Country Club'
   },
   {
     id: 1710028800000,
     tournamentId: 1709769600000,
     tournamentName: 'Players Open',
-    date: '2026-03-14',
+    date: '03/14/2026',
     location: 'Myrtle Wood - Palmetto'
   }
 ];
 
-let players = JSON.parse(localStorage.getItem('players')) || [];
+let players = JSON.parse(localStorage.getItem('players')) || [
+  { id: 1, name: 'Rick Self*', hometown: 'By Gawd, WV', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 1, bracket2026: 'Jack Nicklaus' },
+  { id: 2, name: 'Allen Linday*', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 2, bracket2026: 'Jack Nicklaus' },
+  { id: 3, name: 'Chris Edwards', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 3, bracket2026: 'Jack Nicklaus' },
+  { id: 4, name: 'Tim Downer', hometown: 'New Kent, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 4, bracket2026: 'Jack Nicklaus' },
+  { id: 5, name: 'Mason Downer', hometown: 'New Kent, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 5, bracket2026: 'Jack Nicklaus' },
+  { id: 6, name: 'Mark Morris', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 6, bracket2026: 'Jack Nicklaus' },
+  { id: 7, name: 'Jeff Lodge', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 7, bracket2026: 'Jack Nicklaus' },
+  { id: 8, name: 'Howie Armstrong*', hometown: 'By Gawd, WV', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 8, bracket2026: 'Jack Nicklaus' },
+  { id: 9, name: 'Cameron Downer', hometown: 'New Kent, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 9, bracket2026: 'Jack Nicklaus' },
+  { id: 10, name: 'Ronnie Shupe*', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 10, bracket2026: 'Tiger Woods' },
+  { id: 11, name: 'Bernie Watson', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 11, bracket2026: 'Tiger Woods' },
+  { id: 12, name: 'Bubba Jenkins', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 12, bracket2026: 'Tiger Woods' },
+  { id: 13, name: 'Wayne Samuels', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 13, bracket2026: 'Tiger Woods' },
+  { id: 14, name: 'Chris Sickal', hometown: 'Lakeside, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 14, bracket2026: 'Tiger Woods' },
+  { id: 15, name: 'Travis Thomas', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 15, bracket2026: 'Tiger Woods' },
+  { id: 16, name: 'Robert Vick', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 16, bracket2026: 'Tiger Woods' },
+  { id: 17, name: 'C.J. Meade', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 17, bracket2026: 'Tiger Woods' },
+  { id: 18, name: 'Mitch Dunkum', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 18, bracket2026: 'Tiger Woods' },
+  { id: 19, name: 'BJ Funai', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 19, bracket2026: 'Arnold Palmer' },
+  { id: 20, name: 'John Holloway', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 20, bracket2026: 'Arnold Palmer' },
+  { id: 21, name: 'Andy Self', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 21, bracket2026: 'Arnold Palmer' },
+  { id: 22, name: 'Dillon Small', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 22, bracket2026: 'Arnold Palmer' },
+  { id: 23, name: 'Eric Kennedy', hometown: 'Alabama', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 23, bracket2026: 'Arnold Palmer' },
+  { id: 24, name: 'Ray Valentino*', hometown: 'New Kent, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 24, bracket2026: 'Arnold Palmer' },
+  { id: 25, name: 'BJ Throckmorton', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 25, bracket2026: 'Arnold Palmer' },
+  { id: 26, name: 'Brian Smith', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 26, bracket2026: 'Arnold Palmer' },
+  { id: 27, name: 'Mark McDonough', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 27, bracket2026: 'Arnold Palmer' },
+  { id: 28, name: 'David Small', hometown: 'Anchorage, AK', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 28, bracket2026: 'John Daly' },
+  { id: 29, name: 'Brett White*', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 29, bracket2026: 'John Daly' },
+  { id: 30, name: 'Rob Whelan', hometown: '', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 30, bracket2026: 'John Daly' },
+  { id: 31, name: 'J.C. Stott', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 31, bracket2026: 'John Daly' },
+  { id: 32, name: 'John McCauley', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 32, bracket2026: 'John Daly' },
+  { id: 33, name: 'DJ Hunsucker', hometown: 'Charles City, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 33, bracket2026: 'John Daly' },
+  { id: 34, name: 'Dane Hunsucker*', hometown: 'Charles City, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 34, bracket2026: 'John Daly' },
+  { id: 35, name: 'Jeff Marr', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 35, bracket2026: 'John Daly' },
+  { id: 36, name: 'Ryan Matzuk*', hometown: 'Lakeside, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 36, bracket2026: 'John Daly' }
+];
 let scores = JSON.parse(localStorage.getItem('scores')) || [];
 let teams = JSON.parse(localStorage.getItem('teams')) || [];
 let brackets = JSON.parse(localStorage.getItem('brackets')) || [];
@@ -664,11 +701,16 @@ updateTournaments(e.target.value);
 
 // Date Formatting
 function formatDate(dateStr) {
+// If already in MM/DD/YYYY format, return as-is
+if (dateStr && /^\d{2}\/\d{2}\/\d{4}$/.test(dateStr)) {
+return dateStr;
+}
+// Otherwise parse and format
 const date = new Date(dateStr);
 if (isNaN(date)) return 'Invalid Date';
 const month = String(date.getMonth() + 1).padStart(2, '0');
 const day = String(date.getDate()).padStart(2, '0');
-const year = String(date.getFullYear()).slice(-2);
+const year = date.getFullYear();
 return `${month}/${day}/${year}`;
 }
 
@@ -1182,6 +1224,11 @@ document.getElementById('playerDetails').innerHTML = `
 <p><strong>Weighted Average Points:</strong> ${playerScores.length >= 6 ? calculateWeightedAverage(playerId) : 'N/A'}</p>
 <p><strong>Average Strokes:</strong> ${playerScores.length ? (playerScores.reduce((sum, s) => sum + Number(s.strokes), 0) / playerScores.length).toFixed(2) : 0}</p>
 <p><strong>Highest Score:</strong> ${highScore} ${highScore !== 'N/A' ? `(${formatDate(highScoreData.date)} - ${highScoreLocation})` : ''}</p>
+
+<hr style="margin: 15px 0; border: none; border-top: 1px solid #ddd;">
+<h3 style="color: #072B55; margin-top: 15px;">2026 Info</h3>
+<p><strong>2026 Rank:</strong> <span id="player2026Rank">${player.rank2026 || 'N/A'}</span></p>
+<p><strong>2026 Bracket:</strong> <span id="player2026Bracket">${player.bracket2026 || 'N/A'}</span></p>
 `;
 
 document.querySelector('#playerHistoryTable tbody').innerHTML = playerScores.map(s => {
@@ -1235,6 +1282,11 @@ document.getElementById('playerDetails').innerHTML = `
 <p><strong>Weighted Average Points:</strong> ${playerScores.length >= 6 ? calculateWeightedAverage(playerId) : 'N/A'}</p>
 <p><strong>Average Strokes:</strong> ${playerScores.length ? (playerScores.reduce((sum, s) => sum + Number(s.strokes), 0) / playerScores.length).toFixed(2) : 0}</p>
 <p><strong>Highest Score:</strong> ${highScore} ${highScore !== 'N/A' ? `(${formatDate(highScoreData.date)} - ${highScoreLocation})` : ''}</p>
+
+<hr style="margin: 15px 0; border: none; border-top: 1px solid #ddd;">
+<h3 style="color: #072B55; margin-top: 15px;">2026 Info</h3>
+<p><strong>2026 Rank:</strong> <input type="number" id="edit2026Rank" value="${player.rank2026 || ''}" style="width: 100px;"></p>
+<p><strong>2026 Bracket:</strong> <input type="text" id="edit2026Bracket" value="${player.bracket2026 || ''}" style="width: 200px;"></p>
 `;
 editProfileBtn.classList.add('hidden');
 saveProfileBtn.classList.remove('hidden');
@@ -1245,6 +1297,8 @@ player.name = document.getElementById('editName').value;
 player.hometown = document.getElementById('editHometown').value;
 player.championships = document.getElementById('editChampionships').value;
 player.moneyEarned = document.getElementById('editMoneyEarned').value;
+player.rank2026 = document.getElementById('edit2026Rank').value;
+player.bracket2026 = document.getElementById('edit2026Bracket').value;
 localStorage.setItem('players', JSON.stringify(players));
 showPlayerProfile(playerId);
 hideLoading();
