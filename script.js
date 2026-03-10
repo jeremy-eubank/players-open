@@ -84,7 +84,7 @@ rounds: 1,
 scores: 1
 };
 
-const ITEMS_PER_PAGE = 25;
+const ITEMS_PER_PAGE = 50;
 
 // DOM Elements
 const mainInterface = document.getElementById('mainInterface');
