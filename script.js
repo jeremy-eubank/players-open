@@ -781,10 +781,6 @@ return `
 <div style="font-size: 12px; color: #666;">${p.hometown || 'No hometown'}</div>
 </div>
 </td>
-<td>
-<button onclick="showEditModal('player', ${p.id})">Edit</button>
-<button onclick="showConfirmDelete('player', ${p.id})">Delete</button>
-</td>
 </tr>
 `;
 }).join('');
@@ -1243,8 +1239,28 @@ reader.readAsDataURL(file);
 
 const editProfileBtn = document.getElementById('editProfileBtn');
 const saveProfileBtn = document.getElementById('saveProfileBtn');
+const deleteProfileBtn = document.getElementById('deleteProfileBtn') || document.createElement('button');
+
 editProfileBtn.classList.remove('hidden');
 saveProfileBtn.classList.add('hidden');
+
+// Setup delete button if it doesn't exist
+if (!document.getElementById('deleteProfileBtn')) {
+deleteProfileBtn.id = 'deleteProfileBtn';
+deleteProfileBtn.textContent = 'Delete Player';
+deleteProfileBtn.style.backgroundColor = '#c94c4c';
+deleteProfileBtn.style.marginLeft = '10px';
+editProfileBtn.parentElement.appendChild(deleteProfileBtn);
+}
+
+deleteProfileBtn.onclick = () => {
+if (confirm('Are you sure you want to delete ' + player.name + '?')) {
+deletePlayer(player.id);
+mainInterface.classList.remove('hidden');
+playerProfile.classList.add('hidden');
+updateAll();
+}
+};
 
 editProfileBtn.onclick = () => {
 document.getElementById('playerTitle').innerHTML = `<input type="text" id="editName" value="${player.name}" style="width: auto;"> <span id="playerHometown"><input type="text" id="editHometown" value="${player.hometown}" style="width: auto; margin-left: 5px;"></span>`;
