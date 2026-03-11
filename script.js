@@ -1133,7 +1133,6 @@ th.classList.add(sortStates.tournamentScores.direction);
 });
 
 document.getElementById('highlightTournamentScoresToggle').onchange = () => showTournamentDetails(tournamentId);
-document.getElementById('alignToggle').onchange = () => showTournamentDetails(tournamentId);
 updateDropdowns(tournamentId);
 mainInterface.classList.add('hidden');
 tournamentDetails.classList.remove('hidden');
