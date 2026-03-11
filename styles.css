@@ -214,6 +214,9 @@ gap: 10px;
 /* Teams Table - Mobile Optimized */
 #teamsTableWrapper {
 position: relative;
+overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+width: 100%;
 }
 
 #teamsTable {
@@ -230,9 +233,9 @@ background-color: #e0e7ef;
 /* Mobile: Horizontal scroll for teams table */
 @media (max-width: 768px) {
 #teamsTableWrapper {
-width: 100vw;
-margin-left: calc(-50vw + 50%);
-padding: 0 10px;
+width: 100%;
+margin: 0;
+padding: 0;
 }
 
 #teamsTable {

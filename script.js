@@ -149,35 +149,39 @@ let brackets = JSON.parse(localStorage.getItem('brackets')) || [
   { tournamentId: 1709769600000, teamId: 109, playerId: 36, bracket: 'D' }   // Ryan Matzuk (JD)
 ];
 
-// Generate dummy scores for all players for all 3 rounds
-const dummyScores = [];
-const bracketRanges = {
-  'Jack Nicklaus': { min: 28, max: 45 },
-  'Tiger Woods': { min: 22, max: 35 },
-  'Arnold Palmer': { min: 18, max: 35 },
-  'John Daly': { min: 10, max: 30 }
-};
-
-brackets.forEach((bracket, index) => {
-  const player = players.find(p => p.id === bracket.playerId);
-  const rounds = [1709856000000, 1709942400000, 1710028800000];
-  const roundDates = ['03/12/2026', '03/13/2026', '03/14/2026'];
-  
-  rounds.forEach((roundId, roundIndex) => {
-    const range = bracketRanges[player.bracket2026];
-    const points = randomScore(range.min, range.max);
-    dummyScores.push({
-      id: Date.now() + index * 1000 + roundIndex,
-      tournamentId: 1709769600000,
-      roundId: roundId,
-      playerId: bracket.playerId,
-      teamId: bracket.teamId,
-      date: roundDates[roundIndex],
-      points: points,
-      strokes: Math.floor(Math.random() * 10) + 70  // Random strokes 70-79
-    });
-  });
-});
+// Static dummy scores (consistent across refreshes)
+const dummyScores = [
+  // Team Rick Self - Round 1
+  { id: 1, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 1, teamId: 101, date: '03/12/2026', points: 38, strokes: 74 },
+  { id: 2, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 10, teamId: 101, date: '03/12/2026', points: 28, strokes: 76 },
+  { id: 3, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 19, teamId: 101, date: '03/12/2026', points: 27, strokes: 75 },
+  { id: 4, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 28, teamId: 101, date: '03/12/2026', points: 18, strokes: 77 },
+  // Team Rick Self - Round 2
+  { id: 5, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 1, teamId: 101, date: '03/13/2026', points: 40, strokes: 72 },
+  { id: 6, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 10, teamId: 101, date: '03/13/2026', points: 31, strokes: 75 },
+  { id: 7, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 19, teamId: 101, date: '03/13/2026', points: 29, strokes: 74 },
+  { id: 8, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 28, teamId: 101, date: '03/13/2026', points: 20, strokes: 76 },
+  // Team Rick Self - Round 3
+  { id: 9, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 1, teamId: 101, date: '03/14/2026', points: 42, strokes: 71 },
+  { id: 10, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 10, teamId: 101, date: '03/14/2026', points: 26, strokes: 77 },
+  { id: 11, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 19, teamId: 101, date: '03/14/2026', points: 25, strokes: 76 },
+  { id: 12, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 28, teamId: 101, date: '03/14/2026', points: 15, strokes: 78 },
+  // Team Allen Linday
+  { id: 13, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 2, teamId: 102, date: '03/12/2026', points: 35, strokes: 75 },
+  { id: 14, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 11, teamId: 102, date: '03/12/2026', points: 24, strokes: 77 },
+  { id: 15, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 20, teamId: 102, date: '03/12/2026', points: 30, strokes: 74 },
+  { id: 16, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 29, teamId: 102, date: '03/12/2026', points: 19, strokes: 76 },
+  // Team Allen Linday - Round 2
+  { id: 17, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 2, teamId: 102, date: '03/13/2026', points: 37, strokes: 73 },
+  { id: 18, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 11, teamId: 102, date: '03/13/2026', points: 26, strokes: 76 },
+  { id: 19, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 20, teamId: 102, date: '03/13/2026', points: 28, strokes: 75 },
+  { id: 20, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 29, teamId: 102, date: '03/13/2026', points: 17, strokes: 77 },
+  // Team Allen Linday - Round 3
+  { id: 21, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 2, teamId: 102, date: '03/14/2026', points: 39, strokes: 72 },
+  { id: 22, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 11, teamId: 102, date: '03/14/2026', points: 29, strokes: 74 },
+  { id: 23, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 20, teamId: 102, date: '03/14/2026', points: 32, strokes: 73 },
+  { id: 24, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 29, teamId: 102, date: '03/14/2026', points: 21, strokes: 75 }
+];
 
 if (!localStorage.getItem('scores') || localStorage.getItem('scores') === '[]') {
   scores = dummyScores;
