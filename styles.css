@@ -338,7 +338,7 @@ display: inline !important;
 .team-header-row {
 background-color: #072B55;
 position: sticky;
-top: 40px;
+top: 50px;
 z-index: 5;
 }
 
@@ -351,8 +351,8 @@ text-align: left;
 }
 
 .team-header-cell.top-team {
-background-color: #051f3e;
-border-left: 4px solid #C4A579;
+background-color: #072B55;
+border-left: none;
 }
 
 .team-player-name {
