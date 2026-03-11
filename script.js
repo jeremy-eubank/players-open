@@ -997,9 +997,10 @@ const totalPoints = teamScores.reduce((sum, s) => sum + Number(s.points), 0);
 const isTopTeam = teamIndex === 0;
 
 // Create header row (team name spans all columns)
+const numColumns = uniqueRoundLocations.length + 2; // rounds + player name + total
 const headerRow = `
 <tr class="team-header-row ${isTopTeam ? 'top-team' : ''}">
-<td colspan="100%" class="team-header-cell">${t.name} - Total: ${totalPoints}</td>
+<td colspan="${numColumns}" class="team-header-cell">${t.name} - Total: ${totalPoints}</td>
 </tr>
 `;
 
