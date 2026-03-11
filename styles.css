@@ -581,6 +581,20 @@ button[onclick*="showConfirmDelete"] {
 display: none;
 }
 
+/* Hide Edit/Delete buttons on Player Profile */
+#playerProfile button[onclick*="showEditModal"],
+#playerProfile button[onclick*="showConfirmDelete"],
+#editProfileBtn,
+#deleteProfileBtn {
+display: none;
+}
+
+/* Hide Edit/Delete buttons on Tournament Cards */
+.tournament-row-clickable button[onclick*="showEditModal"],
+.tournament-row-clickable button[onclick*="showConfirmDelete"] {
+display: none;
+}
+
 /* Collapsible Table */
 #scoresTableContainer {
 max-height: 2000px;

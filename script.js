@@ -1284,6 +1284,11 @@ headshotImg.src = player.headshot || 'silhouette.png';
 headshotImg.style.filter = player.headshot ? 'none' : 'grayscale(100%)';
 
 document.getElementById('playerDetails').innerHTML = `
+<h3 style="color: #072B55; margin-top: 0;">2026 Info</h3>
+<p><strong>2026 Rank:</strong> <span id="player2026Rank">${player.rank2026 || 'N/A'}</span></p>
+<p><strong>2026 Bracket:</strong> <span id="player2026Bracket">${player.bracket2026 || 'N/A'}</span></p>
+
+<hr style="margin: 15px 0; border: none; border-top: 1px solid #ddd;">
 <p><strong>Championships:</strong> <span id="playerChampionships">${player.championships || 'N/A'}</span></p>
 <p><strong>Money Earned:</strong> <span id="playerMoneyEarned">${player.moneyEarned || 'N/A'}</span></p>
 <p><strong>Total Rounds Played:</strong> ${playerScores.length}</p>
@@ -1291,11 +1296,6 @@ document.getElementById('playerDetails').innerHTML = `
 <p><strong>Weighted Average Points:</strong> ${playerScores.length >= 6 ? calculateWeightedAverage(playerId) : 'N/A'}</p>
 <p><strong>Average Strokes:</strong> ${playerScores.length ? (playerScores.reduce((sum, s) => sum + Number(s.strokes), 0) / playerScores.length).toFixed(2) : 0}</p>
 <p><strong>Highest Score:</strong> ${highScore} ${highScore !== 'N/A' ? `(${formatDate(highScoreData.date)} - ${highScoreLocation})` : ''}</p>
-
-<hr style="margin: 15px 0; border: none; border-top: 1px solid #ddd;">
-<h3 style="color: #072B55; margin-top: 15px;">2026 Info</h3>
-<p><strong>2026 Rank:</strong> <span id="player2026Rank">${player.rank2026 || 'N/A'}</span></p>
-<p><strong>2026 Bracket:</strong> <span id="player2026Bracket">${player.bracket2026 || 'N/A'}</span></p>
 `;
 
 document.querySelector('#playerHistoryTable tbody').innerHTML = playerScores.map(s => {
@@ -1362,6 +1362,11 @@ updateAll();
 editProfileBtn.onclick = () => {
 document.getElementById('playerTitle').innerHTML = `<input type="text" id="editName" value="${player.name}" style="width: auto;"> <span id="playerHometown"><input type="text" id="editHometown" value="${player.hometown}" style="width: auto; margin-left: 5px;"></span>`;
 document.getElementById('playerDetails').innerHTML = `
+<h3 style="color: #072B55; margin-top: 0;">2026 Info</h3>
+<p><strong>2026 Rank:</strong> <input type="number" id="edit2026Rank" value="${player.rank2026 || ''}" style="width: 100px;"></p>
+<p><strong>2026 Bracket:</strong> <input type="text" id="edit2026Bracket" value="${player.bracket2026 || ''}" style="width: 200px;"></p>
+
+<hr style="margin: 15px 0; border: none; border-top: 1px solid #ddd;">
 <p><strong>Championships:</strong> <input type="text" id="editChampionships" value="${player.championships || ''}"></p>
 <p><strong>Money Earned:</strong> <input type="text" id="editMoneyEarned" value="${player.moneyEarned || ''}"></p>
 <p><strong>Total Rounds Played:</strong> ${playerScores.length}</p>
@@ -1369,11 +1374,6 @@ document.getElementById('playerDetails').innerHTML = `
 <p><strong>Weighted Average Points:</strong> ${playerScores.length >= 6 ? calculateWeightedAverage(playerId) : 'N/A'}</p>
 <p><strong>Average Strokes:</strong> ${playerScores.length ? (playerScores.reduce((sum, s) => sum + Number(s.strokes), 0) / playerScores.length).toFixed(2) : 0}</p>
 <p><strong>Highest Score:</strong> ${highScore} ${highScore !== 'N/A' ? `(${formatDate(highScoreData.date)} - ${highScoreLocation})` : ''}</p>
-
-<hr style="margin: 15px 0; border: none; border-top: 1px solid #ddd;">
-<h3 style="color: #072B55; margin-top: 15px;">2026 Info</h3>
-<p><strong>2026 Rank:</strong> <input type="number" id="edit2026Rank" value="${player.rank2026 || ''}" style="width: 100px;"></p>
-<p><strong>2026 Bracket:</strong> <input type="text" id="edit2026Bracket" value="${player.bracket2026 || ''}" style="width: 200px;"></p>
 `;
 editProfileBtn.classList.add('hidden');
 saveProfileBtn.classList.remove('hidden');
