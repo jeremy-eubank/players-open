@@ -212,9 +212,21 @@ gap: 10px;
 }
 
 /* Teams Table - Mobile Optimized */
+#teamsTableWrapper {
+position: relative;
+}
+
 #teamsTable {
 border-collapse: collapse;
 width: 100%;
+}
+
+/* Sticky table header */
+#teamsTable thead {
+position: sticky;
+top: 0;
+z-index: 10;
+background-color: #e0e7ef;
 }
 
 /* Mobile: Horizontal scroll for teams table */
@@ -242,18 +254,19 @@ min-width: 40px;
 min-width: 40px;
 }
 
-/* Sticky player name column on mobile */
+/* Sticky player name column */
 .team-player-name,
-.team-player-header,
 .team-total-label {
 position: sticky;
 left: 0;
-z-index: 1;
+z-index: 4;
 background-color: #fff;
 }
 
 .team-player-header {
-z-index: 2;
+position: sticky;
+left: 0;
+z-index: 11;
 background-color: #e0e7ef;
 }
 
@@ -325,8 +338,8 @@ display: inline !important;
 .team-header-row {
 background-color: #072B55;
 position: sticky;
-top: 0;
-z-index: 3;
+top: 40px;
+z-index: 5;
 }
 
 .team-header-cell {
