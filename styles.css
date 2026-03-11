@@ -460,7 +460,20 @@ border-left: 1px solid #ddd;
 @media (max-width: 768px) {
 .team-round-header {
 font-size: 12px;
-padding: 8px 4px;
+padding: 6px 3px;
+min-width: 55px;
+max-width: 55px;
+}
+
+.team-score {
+min-width: 55px;
+max-width: 55px;
+}
+
+.team-player-total,
+.team-grand-total {
+min-width: 55px;
+max-width: 55px;
 }
 
 /* Show abbreviations on tablet and below */
@@ -475,11 +488,12 @@ display: none !important;
 
 @media (max-width: 480px) {
 .team-round-header {
-font-size: 11px;
+font-size: 10px;
 padding: 3px 2px;
 word-wrap: break-word;
 white-space: normal;
-min-width: 45px;
+min-width: 50px;
+max-width: 50px;
 }
 
 .team-player-name {
@@ -489,21 +503,24 @@ padding: 6px 8px;
 }
 
 .team-score {
-font-size: 12px;
-padding: 4px 2px;
-min-width: 45px;
+font-size: 11px;
+padding: 3px 2px;
+min-width: 50px;
+max-width: 50px;
 }
 
 .team-player-total {
-font-size: 12px;
-padding: 4px 2px;
-min-width: 45px;
+font-size: 11px;
+padding: 3px 2px;
+min-width: 50px;
+max-width: 50px;
 }
 
 .team-grand-total {
-font-size: 12px;
-padding: 4px 2px;
-min-width: 45px;
+font-size: 11px;
+padding: 3px 2px;
+min-width: 50px;
+max-width: 50px;
 }
 
 .team-header-cell {
