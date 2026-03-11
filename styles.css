@@ -567,6 +567,20 @@ min-width: 150px;
 visibility: visible;
 }
 
+/* Hide All Add/Edit/Delete Buttons (Read-Only Mode) */
+#bulkAddPlayersBtn,
+#bulkAddTeamsBtn,
+#bulkAddTournamentsBtn,
+#bulkAddRoundsBtn,
+#addScoresBtn,
+#importScoresBtn,
+#importCSVBtn,
+#addScoresBtn,
+button[onclick*="showEditModal"],
+button[onclick*="showConfirmDelete"] {
+display: none;
+}
+
 /* Collapsible Table */
 #scoresTableContainer {
 max-height: 2000px;
@@ -607,6 +621,26 @@ background-color: #f0f0f0;
 
 .tournament-row-clickable td {
 padding: 12px;
+}
+
+/* Tournament Name Button Styling */
+.tournament-name-btn {
+color: #0066cc;
+text-decoration: none;
+font-weight: 600;
+cursor: pointer;
+transition: color 0.2s, text-decoration 0.2s;
+display: inline-block;
+padding: 4px 8px;
+border-radius: 4px;
+background-color: #f0f8ff;
+border: 1px solid #0066cc;
+}
+
+.tournament-name-btn:hover {
+color: #004499;
+text-decoration: underline;
+background-color: #e8f4ff;
 }
 
 /* Stacked Ranking Header */
@@ -810,6 +844,13 @@ border-bottom: 2px solid #ddd;
 margin-bottom: 20px;
 border-radius: 4px 4px 0 0;
 overflow-x: auto;
+justify-content: center;
+}
+
+/* Hide Rounds and Scores tabs */
+.tab-navigation button:nth-child(3),
+.tab-navigation button:nth-child(4) {
+display: none;
 }
 
 .tab-btn {

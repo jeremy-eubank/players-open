@@ -790,8 +790,8 @@ const end = start + ITEMS_PER_PAGE;
 const paginated = sorted.slice(start, end);
 
 tournamentTable.innerHTML = paginated.map(t => `
-<tr class="tournament-row-clickable" onclick="showTournamentDetails(${t.id})">
-<td class="clickable">${t.name}</td>
+<tr class="tournament-row-clickable">
+<td class="clickable" onclick="showTournamentDetails(${t.id})"><span class="tournament-name-btn">${t.name}</span></td>
 <td>${t.location}</td>
 <td>${formatDate(t.start)}</td>
 <td>${formatDate(t.end)}</td>
