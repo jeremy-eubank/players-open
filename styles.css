@@ -226,7 +226,16 @@ padding: 0 10px;
 }
 
 #teamsTable {
-min-width: 700px;
+min-width: 600px;
+}
+
+.team-score {
+min-width: 40px;
+}
+
+.team-player-total,
+.team-grand-total {
+min-width: 40px;
 }
 
 /* Sticky player name column on mobile */
@@ -251,7 +260,7 @@ background-color: #f5f5f5;
 
 @media (max-width: 480px) {
 #teamsTable {
-min-width: 600px;
+min-width: 500px;
 }
 
 .team-player-name {
@@ -260,12 +269,26 @@ font-size: 12px;
 }
 
 .team-score {
-min-width: 45px;
+min-width: 35px;
 }
 
 .team-player-total,
 .team-grand-total {
-min-width: 45px;
+min-width: 35px;
+}
+
+/* Show abbreviations on mobile */
+.round-abbrev {
+display: inline;
+}
+
+.round-full {
+display: none;
+}
+
+.team-round-header {
+font-size: 11px;
+padding: 8px 3px;
 }
 }
 
@@ -347,6 +370,15 @@ color: #072B55;
 white-space: normal;
 word-break: break-word;
 font-size: 13px;
+}
+
+/* Hide abbreviations on desktop, show on mobile */
+.round-abbrev {
+display: none;
+}
+
+.round-full {
+display: inline;
 }
 
 .team-total-header {

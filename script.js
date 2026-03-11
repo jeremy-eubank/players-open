@@ -820,6 +820,15 @@ const year = date.getFullYear();
 return `${month}/${day}/${year}`;
 }
 
+// Abbreviate location names (for mobile)
+function abbreviateLocation(location) {
+if (!location) return '';
+return location
+.split(/[\s\-]+/) // Split by spaces or dashes
+.map(word => word.charAt(0).toUpperCase()) // Take first letter of each word
+.join('.') + '.'; // Join with periods
+}
+
 // Update Tables
 function updateTournaments(filter = '') {
 const filtered = filterData(tournaments, filter, ['name', 'location', 'start', 'end', 'notes']);
@@ -1042,7 +1051,10 @@ return headerRow + playerRows + totalRow;
 teamsTableHead.innerHTML = `
 <tr class="team-header-row">
 <th class="team-player-header">Player</th>
-${uniqueRoundLocations.map(rl => `<th class="team-round-header" data-location="${rl.location}">${rl.location}</th>`).join('')}
+${uniqueRoundLocations.map(rl => {
+const abbrev = abbreviateLocation(rl.location);
+return `<th class="team-round-header" data-location="${rl.location}" data-abbrev="${abbrev}"><span class="round-full">${rl.location}</span><span class="round-abbrev">${abbrev}</span></th>`;
+}).join('')}
 <th class="team-total-header">Total</th>
 </tr>
 `;
