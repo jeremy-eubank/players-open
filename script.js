@@ -94,97 +94,37 @@ let teams = JSON.parse(localStorage.getItem('teams')) || [
 ];
 
 let brackets = JSON.parse(localStorage.getItem('brackets')) || [
-  // Team Rick Self
+  // Team Rick Self - A player only
   { tournamentId: 1709769600000, teamId: 101, playerId: 1, bracket: 'A' },   // Rick Self (JN)
-  { tournamentId: 1709769600000, teamId: 101, playerId: 10, bracket: 'B' },  // Ronnie Shupe (TW)
-  { tournamentId: 1709769600000, teamId: 101, playerId: 19, bracket: 'C' },  // BJ Funai (AP)
-  { tournamentId: 1709769600000, teamId: 101, playerId: 28, bracket: 'D' },  // David Small (JD)
   
-  // Team Allen Linday
+  // Team Allen Linday - A player only
   { tournamentId: 1709769600000, teamId: 102, playerId: 2, bracket: 'A' },   // Allen Linday (JN)
-  { tournamentId: 1709769600000, teamId: 102, playerId: 11, bracket: 'B' },  // Bernie Watson (TW)
-  { tournamentId: 1709769600000, teamId: 102, playerId: 20, bracket: 'C' },  // John Holloway (AP)
-  { tournamentId: 1709769600000, teamId: 102, playerId: 29, bracket: 'D' },  // Brett White (JD)
   
-  // Team Chris Edwards
+  // Team Chris Edwards - A player only
   { tournamentId: 1709769600000, teamId: 103, playerId: 3, bracket: 'A' },   // Chris Edwards (JN)
-  { tournamentId: 1709769600000, teamId: 103, playerId: 12, bracket: 'B' },  // Bubba Jenkins (TW)
-  { tournamentId: 1709769600000, teamId: 103, playerId: 21, bracket: 'C' },  // Andy Self (AP)
-  { tournamentId: 1709769600000, teamId: 103, playerId: 30, bracket: 'D' },  // Rob Whelan (JD)
   
-  // Team Tim Downer
+  // Team Tim Downer - A player only
   { tournamentId: 1709769600000, teamId: 104, playerId: 4, bracket: 'A' },   // Tim Downer (JN)
-  { tournamentId: 1709769600000, teamId: 104, playerId: 13, bracket: 'B' },  // Wayne Samuels (TW)
-  { tournamentId: 1709769600000, teamId: 104, playerId: 22, bracket: 'C' },  // Dillon Small (AP)
-  { tournamentId: 1709769600000, teamId: 104, playerId: 31, bracket: 'D' },  // J.C. Stott (JD)
   
-  // Team Mason Downer
+  // Team Mason Downer - A player only
   { tournamentId: 1709769600000, teamId: 105, playerId: 5, bracket: 'A' },   // Mason Downer (JN)
-  { tournamentId: 1709769600000, teamId: 105, playerId: 14, bracket: 'B' },  // Chris Sickal (TW)
-  { tournamentId: 1709769600000, teamId: 105, playerId: 23, bracket: 'C' },  // Eric Kennedy (AP)
-  { tournamentId: 1709769600000, teamId: 105, playerId: 32, bracket: 'D' },  // John McCauley (JD)
   
-  // Team Mark Morris
+  // Team Mark Morris - A player only
   { tournamentId: 1709769600000, teamId: 106, playerId: 6, bracket: 'A' },   // Mark Morris (JN)
-  { tournamentId: 1709769600000, teamId: 106, playerId: 15, bracket: 'B' },  // Travis Thomas (TW)
-  { tournamentId: 1709769600000, teamId: 106, playerId: 24, bracket: 'C' },  // Ray Valentino (AP)
-  { tournamentId: 1709769600000, teamId: 106, playerId: 33, bracket: 'D' },  // DJ Hunsucker (JD)
   
-  // Team Jeff Lodge
+  // Team Jeff Lodge - A player only
   { tournamentId: 1709769600000, teamId: 107, playerId: 7, bracket: 'A' },   // Jeff Lodge (JN)
-  { tournamentId: 1709769600000, teamId: 107, playerId: 16, bracket: 'B' },  // Robert Vick (TW)
-  { tournamentId: 1709769600000, teamId: 107, playerId: 25, bracket: 'C' },  // BJ Throckmorton (AP)
-  { tournamentId: 1709769600000, teamId: 107, playerId: 34, bracket: 'D' },  // Dane Hunsucker (JD)
   
-  // Team Howie Armstrong
+  // Team Howie Armstrong - A player only
   { tournamentId: 1709769600000, teamId: 108, playerId: 8, bracket: 'A' },   // Howie Armstrong (JN)
-  { tournamentId: 1709769600000, teamId: 108, playerId: 17, bracket: 'B' },  // C.J. Meade (TW)
-  { tournamentId: 1709769600000, teamId: 108, playerId: 26, bracket: 'C' },  // Brian Smith (AP)
-  { tournamentId: 1709769600000, teamId: 108, playerId: 35, bracket: 'D' },  // Jeff Marr (JD)
   
-  // Team Cameron Downer
-  { tournamentId: 1709769600000, teamId: 109, playerId: 9, bracket: 'A' },   // Cameron Downer (JN)
-  { tournamentId: 1709769600000, teamId: 109, playerId: 18, bracket: 'B' },  // Mitch Dunkum (TW)
-  { tournamentId: 1709769600000, teamId: 109, playerId: 27, bracket: 'C' },  // Mark McDonough (AP)
-  { tournamentId: 1709769600000, teamId: 109, playerId: 36, bracket: 'D' }   // Ryan Matzuk (JD)
+  // Team Cameron Downer - A player only
+  { tournamentId: 1709769600000, teamId: 109, playerId: 9, bracket: 'A' }    // Cameron Downer (JN)
 ];
 
-// Static dummy scores (consistent across refreshes)
-const dummyScores = [
-  // Team Rick Self - Round 1
-  { id: 1, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 1, teamId: 101, date: '03/12/2026', points: 38, strokes: 74 },
-  { id: 2, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 10, teamId: 101, date: '03/12/2026', points: 28, strokes: 76 },
-  { id: 3, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 19, teamId: 101, date: '03/12/2026', points: 27, strokes: 75 },
-  { id: 4, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 28, teamId: 101, date: '03/12/2026', points: 18, strokes: 77 },
-  // Team Rick Self - Round 2
-  { id: 5, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 1, teamId: 101, date: '03/13/2026', points: 40, strokes: 72 },
-  { id: 6, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 10, teamId: 101, date: '03/13/2026', points: 31, strokes: 75 },
-  { id: 7, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 19, teamId: 101, date: '03/13/2026', points: 29, strokes: 74 },
-  { id: 8, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 28, teamId: 101, date: '03/13/2026', points: 20, strokes: 76 },
-  // Team Rick Self - Round 3
-  { id: 9, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 1, teamId: 101, date: '03/14/2026', points: 42, strokes: 71 },
-  { id: 10, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 10, teamId: 101, date: '03/14/2026', points: 26, strokes: 77 },
-  { id: 11, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 19, teamId: 101, date: '03/14/2026', points: 25, strokes: 76 },
-  { id: 12, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 28, teamId: 101, date: '03/14/2026', points: 15, strokes: 78 },
-  // Team Allen Linday
-  { id: 13, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 2, teamId: 102, date: '03/12/2026', points: 35, strokes: 75 },
-  { id: 14, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 11, teamId: 102, date: '03/12/2026', points: 24, strokes: 77 },
-  { id: 15, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 20, teamId: 102, date: '03/12/2026', points: 30, strokes: 74 },
-  { id: 16, tournamentId: 1709769600000, roundId: 1709856000000, playerId: 29, teamId: 102, date: '03/12/2026', points: 19, strokes: 76 },
-  // Team Allen Linday - Round 2
-  { id: 17, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 2, teamId: 102, date: '03/13/2026', points: 37, strokes: 73 },
-  { id: 18, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 11, teamId: 102, date: '03/13/2026', points: 26, strokes: 76 },
-  { id: 19, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 20, teamId: 102, date: '03/13/2026', points: 28, strokes: 75 },
-  { id: 20, tournamentId: 1709769600000, roundId: 1709942400000, playerId: 29, teamId: 102, date: '03/13/2026', points: 17, strokes: 77 },
-  // Team Allen Linday - Round 3
-  { id: 21, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 2, teamId: 102, date: '03/14/2026', points: 39, strokes: 72 },
-  { id: 22, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 11, teamId: 102, date: '03/14/2026', points: 29, strokes: 74 },
-  { id: 23, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 20, teamId: 102, date: '03/14/2026', points: 32, strokes: 73 },
-  { id: 24, tournamentId: 1709769600000, roundId: 1710028800000, playerId: 29, teamId: 102, date: '03/14/2026', points: 21, strokes: 75 }
-];
-
-if (!localStorage.getItem('scores') || localStorage.getItem('scores') === '[]') {
-  scores = dummyScores;
+// No fake scores - will be populated when teams submit real data
+if (!localStorage.getItem('scores')) {
+  scores = [];
 }
 
 let currentPage = {
@@ -850,12 +790,12 @@ const end = start + ITEMS_PER_PAGE;
 const paginated = sorted.slice(start, end);
 
 tournamentTable.innerHTML = paginated.map(t => `
-<tr>
-<td class="clickable" onclick="showTournamentDetails(${t.id})">${t.name}</td>
+<tr class="tournament-row-clickable" onclick="showTournamentDetails(${t.id})">
+<td class="clickable">${t.name}</td>
 <td>${t.location}</td>
 <td>${formatDate(t.start)}</td>
 <td>${formatDate(t.end)}</td>
-<td>
+<td onclick="event.stopPropagation()">
 <button onclick="showEditModal('tournament', ${t.id})">Edit</button>
 <button onclick="showConfirmDelete('tournament', ${t.id})">Delete</button>
 </td>
@@ -1002,11 +942,15 @@ const tournamentScores = scores.filter(s => s.tournamentId == tournamentId);
 const tournamentTeams = teams.filter(t => t.tournamentId == tournamentId);
 const uniqueRoundLocations = tournamentRounds.map(r => ({ date: formatDate(r.date), location: r.location, id: r.id }));
 
-// Sort teams by total score (descending)
+// Sort teams by A player's rank (ascending - lowest rank first)
 const sortedTeams = tournamentTeams.sort((a, b) => {
-const totalA = scores.filter(s => s.teamId == a.id && s.tournamentId == tournamentId).reduce((sum, s) => sum + Number(s.points), 0);
-const totalB = scores.filter(s => s.teamId == b.id && s.tournamentId == tournamentId).reduce((sum, s) => sum + Number(s.points), 0);
-return totalB - totalA; // Descending (highest first)
+const aPlayerBracket = brackets.find(br => br.teamId == a.id && br.bracket === 'A');
+const bPlayerBracket = brackets.find(br => br.teamId == b.id && br.bracket === 'A');
+const aPlayer = players.find(p => p.id == aPlayerBracket?.playerId);
+const bPlayer = players.find(p => p.id == bPlayerBracket?.playerId);
+const aRank = aPlayer ? Number(aPlayer.rank2026) : 999;
+const bRank = bPlayer ? Number(bPlayer.rank2026) : 999;
+return aRank - bRank; // Ascending (rank 1 first)
 });
 
 // Build team sections with headers + individual tables
@@ -1024,26 +968,38 @@ const headerRow = `
 </tr>
 `;
 
-// Create player rows with bracket letter + name + scores + total
-const playerRows = teamBrackets
-.sort((a, b) => ['A', 'B', 'C', 'D'].indexOf(a.bracket) - ['A', 'B', 'C', 'D'].indexOf(b.bracket))
-.map(b => {
-const player = players.find(p => p.id == b.playerId);
-const playerScoresForTournament = scores.filter(s => s.playerId == b.playerId && s.tournamentId == tournamentId);
+// Create player rows - show A player + empty B/C/D slots
+const playerRows = ['A', 'B', 'C', 'D'].map(bracketLetter => {
+const bracketAssignment = teamBrackets.find(b => b.bracket === bracketLetter);
+if (bracketLetter === 'A' && bracketAssignment) {
+// Show the A player
+const player = players.find(p => p.id == bracketAssignment.playerId);
+const playerScoresForTournament = scores.filter(s => s.playerId == bracketAssignment.playerId && s.tournamentId == tournamentId);
 const playerTotal = playerScoresForTournament.reduce((sum, s) => sum + Number(s.points), 0);
 const scoreColumns = uniqueRoundLocations.map(rl => {
-const playerScore = teamScores.find(s => s.playerId == b.playerId && s.roundId == rl.id);
+const playerScore = teamScores.find(s => s.playerId == bracketAssignment.playerId && s.roundId == rl.id);
 return `<td class="team-score">${playerScore ? playerScore.points : '-'}</td>`;
 }).join('');
 const fullName = player ? player.name : 'Unknown';
 const lastName = getLastName(fullName);
 return `
 <tr class="team-player-row">
-<td class="team-player-name"><span class="player-full">${b.bracket} - ${fullName}</span><span class="player-last">${b.bracket} - ${lastName}</span></td>
+<td class="team-player-name"><span class="player-full">A - ${fullName}</span><span class="player-last">A - ${lastName}</span></td>
 ${scoreColumns}
 <td class="team-player-total">${playerTotal}</td>
 </tr>
 `;
+} else {
+// Show empty slots for B, C, D
+const scoreColumns = uniqueRoundLocations.map(() => `<td class="team-score">-</td>`).join('');
+return `
+<tr class="team-player-row">
+<td class="team-player-name">${bracketLetter} -</td>
+${scoreColumns}
+<td class="team-player-total">-</td>
+</tr>
+`;
+}
 }).join('');
 
 // Create team total row

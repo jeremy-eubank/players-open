@@ -594,6 +594,41 @@ font-weight: normal;
 text-decoration: underline;
 }
 
+/* Tournament Row Styling */
+.tournament-row-clickable {
+cursor: pointer;
+transition: background-color 0.2s;
+border-radius: 4px;
+}
+
+.tournament-row-clickable:hover {
+background-color: #f0f0f0;
+}
+
+.tournament-row-clickable td {
+padding: 12px;
+}
+
+/* Stacked Ranking Header */
+.ranking-header-full {
+display: inline;
+}
+
+.ranking-header-stacked {
+display: none;
+}
+
+@media (max-width: 768px) {
+.ranking-header-full {
+display: none;
+}
+
+.ranking-header-stacked {
+display: block;
+line-height: 1.2;
+}
+}
+
 /* Breadcrumbs */
 .breadcrumbs {
 margin: 10px 0;
