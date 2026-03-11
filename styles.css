@@ -324,6 +324,9 @@ display: inline !important;
 
 .team-header-row {
 background-color: #072B55;
+position: sticky;
+top: 0;
+z-index: 3;
 }
 
 .team-header-cell {
@@ -446,6 +449,15 @@ border-left: 1px solid #ddd;
 font-size: 12px;
 padding: 8px 4px;
 }
+
+/* Show abbreviations on tablet and below */
+.round-abbrev {
+display: inline !important;
+}
+
+.round-full {
+display: none !important;
+}
 }
 
 @media (max-width: 480px) {
@@ -516,6 +528,33 @@ min-width: 150px;
 
 .tooltip:hover .tooltiptext {
 visibility: visible;
+}
+
+/* Collapsible Table */
+#scoresTableContainer {
+max-height: 2000px;
+overflow: hidden;
+transition: max-height 0.3s ease-in-out;
+}
+
+#scoresTableContainer.collapsed {
+max-height: 0;
+display: none;
+}
+
+.collapse-toggle {
+background-color: transparent;
+color: #072B55;
+border: none;
+padding: 0 8px;
+cursor: pointer;
+font-size: 14px;
+margin-left: 10px;
+font-weight: normal;
+}
+
+.collapse-toggle:hover {
+text-decoration: underline;
 }
 
 /* Breadcrumbs */

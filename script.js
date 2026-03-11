@@ -1154,6 +1154,17 @@ th.classList.add(sortStates.tournamentScores.direction);
 });
 
 document.getElementById('highlightTournamentScoresToggle').onchange = () => showTournamentDetails(tournamentId);
+
+// Setup toggle for Player Scores table
+const toggleScoresBtn = document.getElementById('toggleScoresTableBtn');
+const scoresTableContainer = document.getElementById('scoresTableContainer');
+if (toggleScoresBtn && scoresTableContainer) {
+toggleScoresBtn.onclick = () => {
+scoresTableContainer.classList.toggle('collapsed');
+toggleScoresBtn.textContent = scoresTableContainer.classList.contains('collapsed') ? '▶ Show Details' : '▼ Hide Details';
+};
+}
+
 updateDropdowns(tournamentId);
 mainInterface.classList.add('hidden');
 tournamentDetails.classList.remove('hidden');

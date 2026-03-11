@@ -117,7 +117,10 @@
 <tbody></tbody>
 </table>
 </div>
-<h3>Player Scores</h3>
+<h3>Player Scores
+<button id="toggleScoresTableBtn" class="collapse-toggle">▶ Show Details</button>
+</h3>
+<div id="scoresTableContainer" class="collapsed">
 <button id="addScoresBtn">Add Scores</button>
 <label class="toggle-label">Highlight Scores:
 <input type="checkbox" id="highlightTournamentScoresToggle" checked>
@@ -126,6 +129,7 @@
 <thead id="tournamentScoresHead"></thead>
 <tbody></tbody>
 </table>
+</div>
 <h3>Notes</h3>
 <textarea id="tournamentNotes" readonly style="width: 100%; height: 100px;"></textarea>
 <div>
