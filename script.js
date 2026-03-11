@@ -976,20 +976,11 @@ hideLoading();
 
 tournamentDetails.dataset.tournamentId = tournamentId;
 
-// Teams Table
+// Teams Table - Mobile Optimized
 const tournamentRounds = rounds.filter(r => r.tournamentId == tournamentId).sort((a, b) => new Date(a.date) - new Date(b.date));
 const tournamentScores = scores.filter(s => s.tournamentId == tournamentId);
 const tournamentTeams = teams.filter(t => t.tournamentId == tournamentId);
 const uniqueRoundLocations = tournamentRounds.map(r => ({ date: formatDate(r.date), location: r.location, id: r.id }));
-
-teamsTableHead.innerHTML = `
-<tr>
-<th>Team Name</th>
-${uniqueRoundLocations.map(rl => `<th>${rl.date}<br>${rl.location}</th>`).join('')}
-<th>Total</th>
-<th>Actions</th>
-</tr>
-`;
 
 const sortedTeams = tournamentTeams.sort((a, b) => {
 const totalA = scores.filter(s => s.teamId == a.id && s.tournamentId == tournamentId).reduce((sum, s) => sum + Number(s.points), 0);
@@ -997,57 +988,59 @@ const totalB = scores.filter(s => s.teamId == b.id && s.tournamentId == tourname
 return totalB - totalA;
 });
 
-const alignToggle = document.getElementById('alignToggle').checked ? 'left-align' : '';
-
-teamsTable.innerHTML = sortedTeams.map(t => {
+// Build team sections with headers + individual tables
+const teamsHtml = sortedTeams.map((t, teamIndex) => {
 const teamScores = scores.filter(s => s.teamId == t.id && s.tournamentId == tournamentId);
 const teamBrackets = brackets.filter(b => b.tournamentId == tournamentId && b.teamId == t.id);
 const totalPoints = teamScores.reduce((sum, s) => sum + Number(s.points), 0);
-const isTopTeam = t.id === sortedTeams[0].id;
+const isTopTeam = teamIndex === 0;
 
-const roundColumns = uniqueRoundLocations.map((rl, index) => {
-const roundScores = teamScores.filter(s => s.roundId == rl.id);
+// Create header row (team name spans all columns)
+const headerRow = `
+<tr class="team-header-row ${isTopTeam ? 'top-team' : ''}">
+<td colspan="100%" class="team-header-cell">${t.name}</td>
+</tr>
+`;
+
+// Create player rows with bracket letter + name + scores
 const playerRows = teamBrackets
 .sort((a, b) => ['A', 'B', 'C', 'D'].indexOf(a.bracket) - ['A', 'B', 'C', 'D'].indexOf(b.bracket))
 .map(b => {
 const player = players.find(p => p.id == b.playerId);
-const playerScore = roundScores.find(s => s.playerId == b.playerId);
-const totalPlayerPoints = scores.filter(s => s.playerId == b.playerId && s.tournamentId == tournamentId).reduce((sum, s) => sum + Number(s.points), 0);
-const displayScore = playerScore ? (index === uniqueRoundLocations.length - 1 ? `${playerScore.points} (${totalPlayerPoints})` : playerScore.points) : '-';
-return `
-<tr>
-<td>
-<span class="bracket">${b.bracket}</span>
-<span class="player-score">${player ? player.name : 'Unknown'}: ${displayScore}</span>
-</td>
-</tr>
-`;
+const scoreColumns = uniqueRoundLocations.map(rl => {
+const playerScore = teamScores.find(s => s.playerId == b.playerId && s.roundId == rl.id);
+return `<td class="team-score">${playerScore ? playerScore.points : '-'}</td>`;
 }).join('');
-const roundTotal = roundScores.reduce((sum, s) => sum + Number(s.points), 0);
 return `
-<td>
-<table class="team-round-table ${alignToggle}">
-${playerRows}
-<tr class="total">
-<td>Total: ${roundTotal}</td>
+<tr class="team-player-row">
+<td class="team-player-name">${b.bracket} ${player ? player.name : 'Unknown'}</td>
+${scoreColumns}
 </tr>
-</table>
-</td>
 `;
 }).join('');
 
-return `
-<tr class="${isTopTeam ? 'top-team' : ''}">
-<td>${t.name}</td>
-${roundColumns}
-<td>${totalPoints}</td>
-<td>
-<button onclick="showEditTeamModal('${t.id}', '${tournamentId}')">Edit</button>
-<button onclick="showConfirmDelete('team', ${t.id}, ${tournamentId})">Delete</button>
-</td>
+// Create team total row
+const totalRow = `
+<tr class="team-total-row">
+<td class="team-total-label">Team Total</td>
+${uniqueRoundLocations.map(rl => {
+const roundTotal = teamScores.filter(s => s.roundId == rl.id).reduce((sum, s) => sum + Number(s.points), 0);
+return `<td class="team-total-value">${roundTotal}</td>`;
+}).join('')}
 </tr>
 `;
+
+return headerRow + playerRows + totalRow;
 }).join('');
+
+teamsTableHead.innerHTML = `
+<tr class="team-header-row">
+<th class="team-player-header">Player</th>
+${uniqueRoundLocations.map(rl => `<th class="team-round-header" data-location="${rl.location}">${rl.location}</th>`).join('')}
+</tr>
+`;
+
+teamsTable.innerHTML = teamsHtml;
 
 // Player Scores Table
 const uniquePlayers = [...new Set(tournamentScores.map(s => s.playerId))];

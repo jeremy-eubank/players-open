@@ -211,46 +211,112 @@ flex-direction: column;
 gap: 10px;
 }
 
-/* Team round table */
-.team-round-table {
-width: 100%;
+/* Teams Table - Mobile Optimized */
+#teamsTable {
 border-collapse: collapse;
-margin: 5px 0;
+width: 100%;
 }
 
-.team-round-table td {
-padding: 6px;
-border: 1px solid #d9e6d9;
+.team-header-row {
+background-color: #072B55;
+}
+
+.team-header-cell {
+color: #C4A579;
+font-size: 16px;
+font-weight: bold;
+padding: 12px;
+text-align: left;
+}
+
+.team-header-cell.top-team {
+background-color: #051f3e;
+border-left: 4px solid #C4A579;
+}
+
+.team-player-name {
+font-weight: 600;
+padding: 8px 12px;
+text-align: left;
+min-width: 140px;
+}
+
+.team-score {
+text-align: center;
+padding: 8px 6px;
+font-size: 14px;
+}
+
+.team-total-label {
+font-weight: bold;
+padding: 8px 12px;
+text-align: left;
+background-color: #f5f5f5;
+}
+
+.team-total-value {
+font-weight: bold;
+text-align: center;
+padding: 8px 6px;
+background-color: #f5f5f5;
+}
+
+.team-player-header {
+font-weight: bold;
+padding: 10px;
+text-align: center;
+background-color: #e0e7ef;
+color: #072B55;
+}
+
+.team-round-header {
+font-weight: bold;
+padding: 10px 6px;
+text-align: center;
+background-color: #e0e7ef;
+color: #072B55;
+white-space: normal;
+word-break: break-word;
+font-size: 13px;
+}
+
+/* Mobile responsiveness for round headers */
+@media (max-width: 768px) {
+.team-round-header {
 font-size: 12px;
+padding: 8px 4px;
+}
 }
 
-.team-round-table .total {
-font-weight: bold;
-background-color: #f0f0f0;
-}
-
-.team-round-table .bracket {
-font-weight: bold;
-color: #C4A579; /* Tan/gold */
-margin-right: 5px;
-}
-
-/* Alignment classes for team-round-table */
-.team-round-table.left-align .bracket {
-float: left;
-}
-
-.team-round-table.left-align .player-score {
-float: right;
-text-align: right;
-}
-
-/* Font size for team name and total score */
-#teamsTable td:first-child, /* Team Name */
-#teamsTable td:nth-last-child(2) { /* Total Score */
-font-size: 24px;
+@media (max-width: 480px) {
+.team-round-header {
+font-size: 11px;
+padding: 6px 3px;
 word-wrap: break-word;
 white-space: normal;
+}
+
+.team-player-name {
+font-size: 12px;
+min-width: 100px;
+padding: 6px 8px;
+}
+
+.team-score {
+font-size: 12px;
+padding: 6px 4px;
+}
+
+.team-header-cell {
+font-size: 14px;
+padding: 10px;
+}
+
+.team-total-label,
+.team-total-value {
+font-size: 12px;
+padding: 6px;
+}
 }
 
 /* Tooltips */
