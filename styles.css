@@ -476,9 +476,10 @@ display: none !important;
 @media (max-width: 480px) {
 .team-round-header {
 font-size: 11px;
-padding: 6px 3px;
+padding: 3px 2px;
 word-wrap: break-word;
 white-space: normal;
+min-width: 45px;
 }
 
 .team-player-name {
@@ -489,17 +490,20 @@ padding: 6px 8px;
 
 .team-score {
 font-size: 12px;
-padding: 6px 4px;
+padding: 4px 2px;
+min-width: 45px;
 }
 
 .team-player-total {
 font-size: 12px;
-padding: 6px 4px;
+padding: 4px 2px;
+min-width: 45px;
 }
 
 .team-grand-total {
 font-size: 12px;
-padding: 6px 4px;
+padding: 4px 2px;
+min-width: 45px;
 }
 
 .team-header-cell {
