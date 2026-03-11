@@ -217,6 +217,58 @@ border-collapse: collapse;
 width: 100%;
 }
 
+/* Mobile: Horizontal scroll for teams table */
+@media (max-width: 768px) {
+#teamsTableWrapper {
+width: 100vw;
+margin-left: calc(-50vw + 50%);
+padding: 0 10px;
+}
+
+#teamsTable {
+min-width: 700px;
+}
+
+/* Sticky player name column on mobile */
+.team-player-name,
+.team-player-header,
+.team-total-label {
+position: sticky;
+left: 0;
+z-index: 1;
+background-color: #fff;
+}
+
+.team-player-header {
+z-index: 2;
+background-color: #e0e7ef;
+}
+
+.team-total-label {
+background-color: #f5f5f5;
+}
+}
+
+@media (max-width: 480px) {
+#teamsTable {
+min-width: 600px;
+}
+
+.team-player-name {
+min-width: 120px;
+font-size: 12px;
+}
+
+.team-score {
+min-width: 45px;
+}
+
+.team-player-total,
+.team-grand-total {
+min-width: 45px;
+}
+}
+
 .team-header-row {
 background-color: #072B55;
 }
