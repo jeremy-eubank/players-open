@@ -276,6 +276,14 @@ word-break: break-word;
 white-space: normal;
 }
 
+.player-full {
+display: none !important;
+}
+
+.player-last {
+display: inline !important;
+}
+
 .team-score {
 min-width: 35px;
 }
@@ -287,11 +295,11 @@ min-width: 35px;
 
 /* Show abbreviations on mobile */
 .round-abbrev {
-display: inline;
+display: inline !important;
 }
 
 .round-full {
-display: none;
+display: none !important;
 }
 
 .team-round-header {
@@ -303,6 +311,14 @@ padding: 8px 3px;
 min-width: 70px;
 font-size: 11px;
 padding: 6px 6px;
+}
+
+.total-full {
+display: none !important;
+}
+
+.total-short {
+display: inline !important;
 }
 }
 
@@ -332,6 +348,14 @@ word-break: break-word;
 white-space: normal;
 }
 
+.player-full {
+display: inline;
+}
+
+.player-last {
+display: none;
+}
+
 .team-score {
 text-align: center;
 padding: 8px 6px;
@@ -344,6 +368,14 @@ padding: 8px 12px;
 text-align: left;
 background-color: #f5f5f5;
 min-width: 140px;
+}
+
+.total-full {
+display: inline;
+}
+
+.total-short {
+display: none;
 }
 
 .team-total-value {
@@ -391,11 +423,11 @@ font-size: 13px;
 
 /* Hide abbreviations on desktop, show on mobile */
 .round-abbrev {
-display: none;
+display: none !important;
 }
 
 .round-full {
-display: inline;
+display: inline !important;
 }
 
 .team-total-header {

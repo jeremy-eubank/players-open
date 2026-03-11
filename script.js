@@ -829,6 +829,13 @@ return location
 .join('.') + '.'; // Join with periods
 }
 
+// Extract last name from full name
+function getLastName(fullName) {
+if (!fullName) return '';
+const parts = fullName.trim().split(/\s+/);
+return parts[parts.length - 1]; // Return last word
+}
+
 // Update Tables
 function updateTournaments(filter = '') {
 const filtered = filterData(tournaments, filter, ['name', 'location', 'start', 'end', 'notes']);
@@ -1024,9 +1031,11 @@ const scoreColumns = uniqueRoundLocations.map(rl => {
 const playerScore = teamScores.find(s => s.playerId == b.playerId && s.roundId == rl.id);
 return `<td class="team-score">${playerScore ? playerScore.points : '-'}</td>`;
 }).join('');
+const fullName = player ? player.name : 'Unknown';
+const lastName = getLastName(fullName);
 return `
 <tr class="team-player-row">
-<td class="team-player-name">${b.bracket} - ${player ? player.name : 'Unknown'}</td>
+<td class="team-player-name"><span class="player-full">${b.bracket} - ${fullName}</span><span class="player-last">${b.bracket} - ${lastName}</span></td>
 ${scoreColumns}
 <td class="team-player-total">${playerTotal}</td>
 </tr>
@@ -1036,7 +1045,7 @@ ${scoreColumns}
 // Create team total row
 const totalRow = `
 <tr class="team-total-row">
-<td class="team-total-label">Team Total</td>
+<td class="team-total-label"><span class="total-full">Team Total</span><span class="total-short">Total</span></td>
 ${uniqueRoundLocations.map(rl => {
 const roundTotal = teamScores.filter(s => s.roundId == rl.id).reduce((sum, s) => sum + Number(s.points), 0);
 return `<td class="team-total-value">${roundTotal}</td>`;
