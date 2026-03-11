@@ -337,9 +337,7 @@ display: inline !important;
 
 .team-header-row {
 background-color: #072B55;
-position: sticky;
-top: 75px;
-z-index: 5;
+position: static;
 }
 
 .team-header-cell {
