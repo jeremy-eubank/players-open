@@ -982,10 +982,11 @@ const tournamentScores = scores.filter(s => s.tournamentId == tournamentId);
 const tournamentTeams = teams.filter(t => t.tournamentId == tournamentId);
 const uniqueRoundLocations = tournamentRounds.map(r => ({ date: formatDate(r.date), location: r.location, id: r.id }));
 
+// Sort teams by total score (descending)
 const sortedTeams = tournamentTeams.sort((a, b) => {
 const totalA = scores.filter(s => s.teamId == a.id && s.tournamentId == tournamentId).reduce((sum, s) => sum + Number(s.points), 0);
 const totalB = scores.filter(s => s.teamId == b.id && s.tournamentId == tournamentId).reduce((sum, s) => sum + Number(s.points), 0);
-return totalB - totalA;
+return totalB - totalA; // Descending (highest first)
 });
 
 // Build team sections with headers + individual tables
@@ -998,15 +999,17 @@ const isTopTeam = teamIndex === 0;
 // Create header row (team name spans all columns)
 const headerRow = `
 <tr class="team-header-row ${isTopTeam ? 'top-team' : ''}">
-<td colspan="100%" class="team-header-cell">${t.name}</td>
+<td colspan="100%" class="team-header-cell">${t.name} - Total: ${totalPoints}</td>
 </tr>
 `;
 
-// Create player rows with bracket letter + name + scores
+// Create player rows with bracket letter + name + scores + total
 const playerRows = teamBrackets
 .sort((a, b) => ['A', 'B', 'C', 'D'].indexOf(a.bracket) - ['A', 'B', 'C', 'D'].indexOf(b.bracket))
 .map(b => {
 const player = players.find(p => p.id == b.playerId);
+const playerScoresForTournament = scores.filter(s => s.playerId == b.playerId && s.tournamentId == tournamentId);
+const playerTotal = playerScoresForTournament.reduce((sum, s) => sum + Number(s.points), 0);
 const scoreColumns = uniqueRoundLocations.map(rl => {
 const playerScore = teamScores.find(s => s.playerId == b.playerId && s.roundId == rl.id);
 return `<td class="team-score">${playerScore ? playerScore.points : '-'}</td>`;
@@ -1015,6 +1018,7 @@ return `
 <tr class="team-player-row">
 <td class="team-player-name">${b.bracket} ${player ? player.name : 'Unknown'}</td>
 ${scoreColumns}
+<td class="team-player-total">${playerTotal}</td>
 </tr>
 `;
 }).join('');
@@ -1027,6 +1031,7 @@ ${uniqueRoundLocations.map(rl => {
 const roundTotal = teamScores.filter(s => s.roundId == rl.id).reduce((sum, s) => sum + Number(s.points), 0);
 return `<td class="team-total-value">${roundTotal}</td>`;
 }).join('')}
+<td class="team-grand-total">${totalPoints}</td>
 </tr>
 `;
 
@@ -1037,6 +1042,7 @@ teamsTableHead.innerHTML = `
 <tr class="team-header-row">
 <th class="team-player-header">Player</th>
 ${uniqueRoundLocations.map(rl => `<th class="team-round-header" data-location="${rl.location}">${rl.location}</th>`).join('')}
+<th class="team-total-header">Total</th>
 </tr>
 `;
 
