@@ -1026,7 +1026,7 @@ return `<td class="team-score">${playerScore ? playerScore.points : '-'}</td>`;
 }).join('');
 return `
 <tr class="team-player-row">
-<td class="team-player-name">${b.bracket} ${player ? player.name : 'Unknown'}</td>
+<td class="team-player-name"><div class="bracket-letter">${b.bracket}</div><div class="player-fullname">${player ? player.name : 'Unknown'}</div></td>
 ${scoreColumns}
 <td class="team-player-total">${playerTotal}</td>
 </tr>

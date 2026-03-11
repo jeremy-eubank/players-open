@@ -264,8 +264,24 @@ min-width: 500px;
 }
 
 .team-player-name {
-min-width: 120px;
+min-width: 80px;
+font-size: 11px;
+flex-direction: column;
+align-items: flex-start;
+gap: 2px;
+padding: 6px 8px;
+}
+
+.bracket-letter {
+display: block;
 font-size: 12px;
+margin-bottom: 2px;
+}
+
+.player-fullname {
+display: block;
+font-size: 11px;
+word-break: break-word;
 }
 
 .team-score {
@@ -289,6 +305,12 @@ display: none;
 .team-round-header {
 font-size: 11px;
 padding: 8px 3px;
+}
+
+.team-total-label {
+min-width: 80px;
+font-size: 11px;
+padding: 6px 8px;
 }
 }
 
@@ -314,6 +336,19 @@ font-weight: 600;
 padding: 8px 12px;
 text-align: left;
 min-width: 140px;
+display: flex;
+align-items: center;
+gap: 4px;
+}
+
+.bracket-letter {
+font-weight: bold;
+color: #C4A579;
+display: inline;
+}
+
+.player-fullname {
+display: inline;
 }
 
 .team-score {
@@ -327,6 +362,7 @@ font-weight: bold;
 padding: 8px 12px;
 text-align: left;
 background-color: #f5f5f5;
+min-width: 140px;
 }
 
 .team-total-value {
