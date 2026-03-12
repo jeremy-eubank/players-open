@@ -995,11 +995,11 @@ const headerRow = `
 </tr>
 `;
 
-// Create player rows - show A player + empty B/C/D slots
+// Create player rows - show all A/B/C/D players
 const playerRows = ['A', 'B', 'C', 'D'].map(bracketLetter => {
 const bracketAssignment = teamBrackets.find(b => b.bracket === bracketLetter);
-if (bracketLetter === 'A' && bracketAssignment) {
-// Show the A player
+if (bracketAssignment) {
+// Show the player for this bracket
 const player = players.find(p => p.id == bracketAssignment.playerId);
 const playerScoresForTournament = scores.filter(s => s.playerId == bracketAssignment.playerId && s.tournamentId == tournamentId);
 const playerTotal = playerScoresForTournament.reduce((sum, s) => sum + Number(s.points), 0);
@@ -1011,13 +1011,13 @@ const fullName = player ? player.name : 'Unknown';
 const lastName = getLastName(fullName);
 return `
 <tr class="team-player-row">
-<td class="team-player-name"><span class="player-full">A - ${fullName}</span><span class="player-last">A - ${lastName}</span></td>
+<td class="team-player-name"><span class="player-full">${bracketLetter} - ${fullName}</span><span class="player-last">${bracketLetter} - ${lastName}</span></td>
 ${scoreColumns}
 <td class="team-player-total">${playerTotal}</td>
 </tr>
 `;
 } else {
-// Show empty slots for B, C, D
+// Show empty slots for unassigned brackets
 const scoreColumns = uniqueRoundLocations.map(() => `<td class="team-score">-</td>`).join('');
 return `
 <tr class="team-player-row">
