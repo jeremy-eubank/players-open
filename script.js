@@ -94,32 +94,59 @@ let teams = JSON.parse(localStorage.getItem('teams')) || [
 ];
 
 let brackets = JSON.parse(localStorage.getItem('brackets')) || [
-  // Team Rick Self - A player only
-  { tournamentId: 1709769600000, teamId: 101, playerId: 1, bracket: 'A' },   // Rick Self (JN)
+  // Team Rick Self
+  { tournamentId: 1709769600000, teamId: 101, playerId: 1, bracket: 'A' },    // Rick Self*
+  { tournamentId: 1709769600000, teamId: 101, playerId: 10, bracket: 'B' },   // Ronnie Shupe*
+  { tournamentId: 1709769600000, teamId: 101, playerId: 19, bracket: 'C' },   // BJ Funai
+  { tournamentId: 1709769600000, teamId: 101, playerId: 28, bracket: 'D' },   // David Small
   
-  // Team Allen Linday - A player only
-  { tournamentId: 1709769600000, teamId: 102, playerId: 2, bracket: 'A' },   // Allen Linday (JN)
+  // Team Allen Lindsay
+  { tournamentId: 1709769600000, teamId: 102, playerId: 2, bracket: 'A' },    // Allen Lindsay*
+  { tournamentId: 1709769600000, teamId: 102, playerId: 11, bracket: 'B' },   // Bernie Watson
+  { tournamentId: 1709769600000, teamId: 102, playerId: 20, bracket: 'C' },   // John Holloway
+  { tournamentId: 1709769600000, teamId: 102, playerId: 29, bracket: 'D' },   // Brett White*
   
-  // Team Chris Edwards - A player only
-  { tournamentId: 1709769600000, teamId: 103, playerId: 3, bracket: 'A' },   // Chris Edwards (JN)
+  // Team Chris Edwards
+  { tournamentId: 1709769600000, teamId: 103, playerId: 3, bracket: 'A' },    // Chris Edwards
+  { tournamentId: 1709769600000, teamId: 103, playerId: 12, bracket: 'B' },   // Bubba Jenkins
+  { tournamentId: 1709769600000, teamId: 103, playerId: 21, bracket: 'C' },   // Andy Self
+  { tournamentId: 1709769600000, teamId: 103, playerId: 30, bracket: 'D' },   // Rob Whelan
   
-  // Team Tim Downer - A player only
-  { tournamentId: 1709769600000, teamId: 104, playerId: 4, bracket: 'A' },   // Tim Downer (JN)
+  // Team Tim Downer
+  { tournamentId: 1709769600000, teamId: 104, playerId: 4, bracket: 'A' },    // Tim Downer
+  { tournamentId: 1709769600000, teamId: 104, playerId: 13, bracket: 'B' },   // Wayne Samuels
+  { tournamentId: 1709769600000, teamId: 104, playerId: 22, bracket: 'C' },   // Dillon Small
+  { tournamentId: 1709769600000, teamId: 104, playerId: 31, bracket: 'D' },   // J.C. Stott
   
-  // Team Mason Downer - A player only
-  { tournamentId: 1709769600000, teamId: 105, playerId: 5, bracket: 'A' },   // Mason Downer (JN)
+  // Team Mason Downer
+  { tournamentId: 1709769600000, teamId: 105, playerId: 5, bracket: 'A' },    // Mason Downer
+  { tournamentId: 1709769600000, teamId: 105, playerId: 14, bracket: 'B' },   // Chris Sickal
+  { tournamentId: 1709769600000, teamId: 105, playerId: 23, bracket: 'C' },   // Eric Kennedy
+  { tournamentId: 1709769600000, teamId: 105, playerId: 32, bracket: 'D' },   // John McCauley
   
-  // Team Mark Morris - A player only
-  { tournamentId: 1709769600000, teamId: 106, playerId: 6, bracket: 'A' },   // Mark Morris (JN)
+  // Team Mark Morris
+  { tournamentId: 1709769600000, teamId: 106, playerId: 6, bracket: 'A' },    // Mark Morris
+  { tournamentId: 1709769600000, teamId: 106, playerId: 15, bracket: 'B' },   // Travis Thomas
+  { tournamentId: 1709769600000, teamId: 106, playerId: 24, bracket: 'C' },   // Ray Valentino*
+  { tournamentId: 1709769600000, teamId: 106, playerId: 33, bracket: 'D' },   // DJ Hunsucker
   
-  // Team Jeff Lodge - A player only
-  { tournamentId: 1709769600000, teamId: 107, playerId: 7, bracket: 'A' },   // Jeff Lodge (JN)
+  // Team Jeff Lodge
+  { tournamentId: 1709769600000, teamId: 107, playerId: 7, bracket: 'A' },    // Jeff Lodge
+  { tournamentId: 1709769600000, teamId: 107, playerId: 16, bracket: 'B' },   // Robert Vick
+  { tournamentId: 1709769600000, teamId: 107, playerId: 25, bracket: 'C' },   // BJ Throckmorton
+  { tournamentId: 1709769600000, teamId: 107, playerId: 34, bracket: 'D' },   // Dane Hunsucker*
   
-  // Team Howie Armstrong - A player only
-  { tournamentId: 1709769600000, teamId: 108, playerId: 8, bracket: 'A' },   // Howie Armstrong (JN)
+  // Team Howie Armstrong
+  { tournamentId: 1709769600000, teamId: 108, playerId: 8, bracket: 'A' },    // Howie Armstrong*
+  { tournamentId: 1709769600000, teamId: 108, playerId: 17, bracket: 'B' },   // C.J. Meade
+  { tournamentId: 1709769600000, teamId: 108, playerId: 26, bracket: 'C' },   // Brian Smith
+  { tournamentId: 1709769600000, teamId: 108, playerId: 35, bracket: 'D' },   // Jeff Marr
   
-  // Team Cameron Downer - A player only
-  { tournamentId: 1709769600000, teamId: 109, playerId: 9, bracket: 'A' }    // Cameron Downer (JN)
+  // Team Cameron Downer
+  { tournamentId: 1709769600000, teamId: 109, playerId: 9, bracket: 'A' },    // Cameron Downer
+  { tournamentId: 1709769600000, teamId: 109, playerId: 18, bracket: 'B' },   // Mitch Dunkum
+  { tournamentId: 1709769600000, teamId: 109, playerId: 27, bracket: 'C' },   // Mark McDonough
+  { tournamentId: 1709769600000, teamId: 109, playerId: 36, bracket: 'D' }    // Ryan Matzuk*
 ];
 
 // No fake scores - will be populated when teams submit real data
