@@ -127,7 +127,7 @@ let scoreDefaults = [
   { id: 10033, tournamentId: 1709769600000, teamId: 109, playerId: 9, roundId: 1709856000000, date: '2026-03-12', points: 29, strokes: 18 },   // Cameron Downer
   { id: 10034, tournamentId: 1709769600000, teamId: 109, playerId: 17, roundId: 1709856000000, date: '2026-03-12', points: 29, strokes: 18 },  // C.J. Meade
   { id: 10035, tournamentId: 1709769600000, teamId: 109, playerId: 21, roundId: 1709856000000, date: '2026-03-12', points: 35, strokes: 18 },  // Andy Self
-  { id: 10036, tournamentId: 1709769600000, teamId: 109, playerId: 33, roundId: 1709856000000, date: '2026-03-12', points: 12, strokes: 18 }   // DJ Hunsucker
+  { id: 10036, tournamentId: 1709769600000, teamId: 109, playerId: 33, roundId: 1709856000000, date: '2026-03-12', points: 13, strokes: 18 }   // DJ Hunsucker
 ];
 
 // Initialize scores: use localStorage if it has data, otherwise use hardcoded defaults
