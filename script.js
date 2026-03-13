@@ -73,7 +73,8 @@ let players = JSON.parse(localStorage.getItem('players')) || [
   { id: 35, name: 'Jeff Marr', hometown: 'Varina, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 35, bracket2026: 'John Daly' },
   { id: 36, name: 'Ryan Matzuk*', hometown: 'Lakeside, VA', startYear: 2026, championships: '', moneyEarned: '', headshot: null, rank2026: 36, bracket2026: 'John Daly' }
 ];
-let scores = JSON.parse(localStorage.getItem('scores')) || [
+// Initialize scores from localStorage or use hardcoded defaults
+let scoreDefaults = [
   // Round 1 (03/12/2026 - "World Tour") - Team Rick Self
   { id: 10001, tournamentId: 1709769600000, teamId: 101, playerId: 1, roundId: 1709856000000, date: '2026-03-12', points: 41, strokes: 18 },   // Rick Self
   { id: 10002, tournamentId: 1709769600000, teamId: 101, playerId: 13, roundId: 1709856000000, date: '2026-03-12', points: 33, strokes: 18 }, // Wayne Samuels
@@ -128,6 +129,19 @@ let scores = JSON.parse(localStorage.getItem('scores')) || [
   { id: 10035, tournamentId: 1709769600000, teamId: 109, playerId: 21, roundId: 1709856000000, date: '2026-03-12', points: 35, strokes: 18 },  // Andy Self
   { id: 10036, tournamentId: 1709769600000, teamId: 109, playerId: 33, roundId: 1709856000000, date: '2026-03-12', points: 12, strokes: 18 }   // DJ Hunsucker
 ];
+
+// Initialize scores: use localStorage if it has data, otherwise use hardcoded defaults
+let scores = (() => {
+  const stored = localStorage.getItem('scores');
+  if (stored) {
+    const parsed = JSON.parse(stored);
+    // If localStorage is empty array, use defaults
+    return parsed.length > 0 ? parsed : scoreDefaults;
+  }
+  // First load - populate localStorage with defaults
+  localStorage.setItem('scores', JSON.stringify(scoreDefaults));
+  return scoreDefaults;
+})();
 
 // Helper function to generate random score
 function randomScore(min, max) {
