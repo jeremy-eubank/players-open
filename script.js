@@ -1037,15 +1037,13 @@ const tournamentScores = scores.filter(s => s.tournamentId == tournamentId);
 const tournamentTeams = teams.filter(t => t.tournamentId == tournamentId);
 const uniqueRoundLocations = tournamentRounds.map(r => ({ date: formatDate(r.date), location: r.location, id: r.id }));
 
-// Sort teams by A player's rank (ascending - lowest rank first)
+// Sort teams by total score (descending - highest score first)
 const sortedTeams = tournamentTeams.sort((a, b) => {
-const aPlayerBracket = brackets.find(br => br.teamId == a.id && br.bracket === 'A');
-const bPlayerBracket = brackets.find(br => br.teamId == b.id && br.bracket === 'A');
-const aPlayer = players.find(p => p.id == aPlayerBracket?.playerId);
-const bPlayer = players.find(p => p.id == bPlayerBracket?.playerId);
-const aRank = aPlayer ? Number(aPlayer.rank2026) : 999;
-const bRank = bPlayer ? Number(bPlayer.rank2026) : 999;
-return aRank - bRank; // Ascending (rank 1 first)
+const aTeamScores = scores.filter(s => s.teamId == a.id && s.tournamentId == tournamentId);
+const bTeamScores = scores.filter(s => s.teamId == b.id && s.tournamentId == tournamentId);
+const aTotal = aTeamScores.reduce((sum, s) => sum + Number(s.points), 0);
+const bTotal = bTeamScores.reduce((sum, s) => sum + Number(s.points), 0);
+return bTotal - aTotal; // Descending (highest score first)
 });
 
 // Build team sections with headers + individual tables
