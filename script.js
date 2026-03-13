@@ -96,7 +96,7 @@ let scoreDefaults = [
   // Round 1 - Team Tim Downer
   { id: 10013, tournamentId: 1709769600000, teamId: 104, playerId: 4, roundId: 1709856000000, date: '2026-03-12', points: 44, strokes: 18 },   // Tim Downer
   { id: 10014, tournamentId: 1709769600000, teamId: 104, playerId: 10, roundId: 1709856000000, date: '2026-03-12', points: 32, strokes: 18 },  // Ronnie Shupe
-  { id: 10015, tournamentId: 1709769600000, teamId: 104, playerId: 22, roundId: 1709856000000, date: '2026-03-12', points: 22, strokes: 18 },  // Dillon Small
+  { id: 10015, tournamentId: 1709769600000, teamId: 104, playerId: 22, roundId: 1709856000000, date: '2026-03-12', points: 23, strokes: 18 },  // Dillon Small
   { id: 10016, tournamentId: 1709769600000, teamId: 104, playerId: 28, roundId: 1709856000000, date: '2026-03-12', points: 20, strokes: 18 },  // David Small
   
   // Round 1 - Team Mason Downer
