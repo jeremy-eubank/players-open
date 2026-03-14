@@ -181,7 +181,61 @@ let scoreDefaults = [
   { id: 10069, tournamentId: 1709769600000, teamId: 109, playerId: 9, roundId: 1709942400000, date: '2026-03-13', points: 35, strokes: 18 },   // Cameron Downer
   { id: 10070, tournamentId: 1709769600000, teamId: 109, playerId: 17, roundId: 1709942400000, date: '2026-03-13', points: 35, strokes: 18 },  // C.J. Meade
   { id: 10071, tournamentId: 1709769600000, teamId: 109, playerId: 21, roundId: 1709942400000, date: '2026-03-13', points: 30, strokes: 18 },  // Andy Self
-  { id: 10072, tournamentId: 1709769600000, teamId: 109, playerId: 33, roundId: 1709942400000, date: '2026-03-13', points: 24, strokes: 18 }   // DJ Hunsucker
+  { id: 10072, tournamentId: 1709769600000, teamId: 109, playerId: 33, roundId: 1709942400000, date: '2026-03-13', points: 24, strokes: 18 },  // DJ Hunsucker
+  
+  // Round 3 (03/14/2026 - "Myrtle Wood - Palmetto") - Team Rick Self
+  { id: 10073, tournamentId: 1709769600000, teamId: 101, playerId: 1, roundId: 1710028800000, date: '2026-03-14', points: 45, strokes: 18 },   // Rick Self
+  { id: 10074, tournamentId: 1709769600000, teamId: 101, playerId: 13, roundId: 1710028800000, date: '2026-03-14', points: 35, strokes: 18 }, // Wayne Samuels
+  { id: 10075, tournamentId: 1709769600000, teamId: 101, playerId: 20, roundId: 1710028800000, date: '2026-03-14', points: 38, strokes: 18 }, // John Holloway
+  { id: 10076, tournamentId: 1709769600000, teamId: 101, playerId: 36, roundId: 1710028800000, date: '2026-03-14', points: 13, strokes: 18 }, // Ryan Matzuk
+  
+  // Round 3 - Team Allen Lindsay
+  { id: 10077, tournamentId: 1709769600000, teamId: 102, playerId: 2, roundId: 1710028800000, date: '2026-03-14', points: 43, strokes: 18 },   // Allen Lindsay
+  { id: 10078, tournamentId: 1709769600000, teamId: 102, playerId: 11, roundId: 1710028800000, date: '2026-03-14', points: 42, strokes: 18 },  // Bernie Watson
+  { id: 10079, tournamentId: 1709769600000, teamId: 102, playerId: 23, roundId: 1710028800000, date: '2026-03-14', points: 32, strokes: 18 },  // Eric Kennedy
+  { id: 10080, tournamentId: 1709769600000, teamId: 102, playerId: 29, roundId: 1710028800000, date: '2026-03-14', points: 29, strokes: 18 },  // Brett White
+  
+  // Round 3 - Team Chris Edwards
+  { id: 10081, tournamentId: 1709769600000, teamId: 103, playerId: 3, roundId: 1710028800000, date: '2026-03-14', points: 41, strokes: 18 },   // Chris Edwards
+  { id: 10082, tournamentId: 1709769600000, teamId: 103, playerId: 12, roundId: 1710028800000, date: '2026-03-14', points: 37, strokes: 18 },  // Bubba Jenkins
+  { id: 10083, tournamentId: 1709769600000, teamId: 103, playerId: 27, roundId: 1710028800000, date: '2026-03-14', points: 26, strokes: 18 },  // Mark McDonough
+  { id: 10084, tournamentId: 1709769600000, teamId: 103, playerId: 30, roundId: 1710028800000, date: '2026-03-14', points: 35, strokes: 18 },  // Rob Whelan
+  
+  // Round 3 - Team Tim Downer
+  { id: 10085, tournamentId: 1709769600000, teamId: 104, playerId: 4, roundId: 1710028800000, date: '2026-03-14', points: 39, strokes: 18 },   // Tim Downer
+  { id: 10086, tournamentId: 1709769600000, teamId: 104, playerId: 10, roundId: 1710028800000, date: '2026-03-14', points: 33, strokes: 18 },  // Ronnie Shupe
+  { id: 10087, tournamentId: 1709769600000, teamId: 104, playerId: 22, roundId: 1710028800000, date: '2026-03-14', points: 28, strokes: 18 },  // Dillon Small
+  { id: 10088, tournamentId: 1709769600000, teamId: 104, playerId: 28, roundId: 1710028800000, date: '2026-03-14', points: 15, strokes: 18 },  // David Small
+  
+  // Round 3 - Team Mason Downer
+  { id: 10089, tournamentId: 1709769600000, teamId: 105, playerId: 5, roundId: 1710028800000, date: '2026-03-14', points: 42, strokes: 18 },   // Mason Downer
+  { id: 10090, tournamentId: 1709769600000, teamId: 105, playerId: 15, roundId: 1710028800000, date: '2026-03-14', points: 37, strokes: 18 },  // Travis Thomas
+  { id: 10091, tournamentId: 1709769600000, teamId: 105, playerId: 24, roundId: 1710028800000, date: '2026-03-14', points: 32, strokes: 18 },  // Ray Valentino
+  { id: 10092, tournamentId: 1709769600000, teamId: 105, playerId: 34, roundId: 1710028800000, date: '2026-03-14', points: 23, strokes: 18 },  // Dane Hunsucker
+  
+  // Round 3 - Team Mark Morris
+  { id: 10093, tournamentId: 1709769600000, teamId: 106, playerId: 6, roundId: 1710028800000, date: '2026-03-14', points: 42, strokes: 18 },   // Mark Morris
+  { id: 10094, tournamentId: 1709769600000, teamId: 106, playerId: 14, roundId: 1710028800000, date: '2026-03-14', points: 29, strokes: 18 },  // Chris Sickal
+  { id: 10095, tournamentId: 1709769600000, teamId: 106, playerId: 19, roundId: 1710028800000, date: '2026-03-14', points: 41, strokes: 18 },  // BJ Funai
+  { id: 10096, tournamentId: 1709769600000, teamId: 106, playerId: 35, roundId: 1710028800000, date: '2026-03-14', points: 16, strokes: 18 },  // Jeff Marr
+  
+  // Round 3 - Team Jeff Lodge
+  { id: 10097, tournamentId: 1709769600000, teamId: 107, playerId: 7, roundId: 1710028800000, date: '2026-03-14', points: 40, strokes: 18 },   // Jeff Lodge
+  { id: 10098, tournamentId: 1709769600000, teamId: 107, playerId: 16, roundId: 1710028800000, date: '2026-03-14', points: 39, strokes: 18 },  // Robert Vick
+  { id: 10099, tournamentId: 1709769600000, teamId: 107, playerId: 26, roundId: 1710028800000, date: '2026-03-14', points: 34, strokes: 18 },  // Brian Smith
+  { id: 10100, tournamentId: 1709769600000, teamId: 107, playerId: 32, roundId: 1710028800000, date: '2026-03-14', points: 32, strokes: 18 },  // John McCauley
+  
+  // Round 3 - Team Howie Armstrong
+  { id: 10101, tournamentId: 1709769600000, teamId: 108, playerId: 8, roundId: 1710028800000, date: '2026-03-14', points: 30, strokes: 18 },   // Howie Armstrong
+  { id: 10102, tournamentId: 1709769600000, teamId: 108, playerId: 18, roundId: 1710028800000, date: '2026-03-14', points: 35, strokes: 18 },  // Mitch Dunkum
+  { id: 10103, tournamentId: 1709769600000, teamId: 108, playerId: 25, roundId: 1710028800000, date: '2026-03-14', points: 35, strokes: 18 },  // BJ Throckmorton
+  { id: 10104, tournamentId: 1709769600000, teamId: 108, playerId: 31, roundId: 1710028800000, date: '2026-03-14', points: 23, strokes: 18 },  // J.C. Stott
+  
+  // Round 3 - Team Cameron Downer
+  { id: 10105, tournamentId: 1709769600000, teamId: 109, playerId: 9, roundId: 1710028800000, date: '2026-03-14', points: 45, strokes: 18 },   // Cameron Downer
+  { id: 10106, tournamentId: 1709769600000, teamId: 109, playerId: 17, roundId: 1710028800000, date: '2026-03-14', points: 33, strokes: 18 },  // C.J. Meade
+  { id: 10107, tournamentId: 1709769600000, teamId: 109, playerId: 21, roundId: 1710028800000, date: '2026-03-14', points: 31, strokes: 18 },  // Andy Self
+  { id: 10108, tournamentId: 1709769600000, teamId: 109, playerId: 33, roundId: 1710028800000, date: '2026-03-14', points: 29, strokes: 18 }   // DJ Hunsucker
 ];
 
 // Initialize scores: use localStorage if it has data, otherwise use hardcoded defaults
